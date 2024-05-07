@@ -2,7 +2,7 @@
 
 [![github release](https://img.shields.io/github/v/release/flex-development/vfile-reader.svg?include_prereleases&sort=semver)](https://github.com/flex-development/vfile-reader/releases/latest)
 [![npm](https://img.shields.io/npm/v/@flex-development/vfile-reader.svg)](https://npmjs.com/package/@flex-development/vfile-reader)
-[![codecov](https://codecov.io/gh/flex-development/vfile-reader/graph/badge.svg?token=)](https://codecov.io/gh/flex-development/vfile-reader)
+[![codecov](https://codecov.io/gh/flex-development/vfile-reader/graph/badge.svg?token=XJBC8OxhNZ)](https://codecov.io/gh/flex-development/vfile-reader)
 [![module type: esm](https://img.shields.io/badge/module%20type-esm-brightgreen)](https://github.com/voxpelli/badges-cjs-esm)
 [![license](https://img.shields.io/github/license/flex-development/vfile-reader.svg)](LICENSE.md)
 [![conventional commits](https://img.shields.io/badge/-conventional%20commits-fe5196?logo=conventional-commits&logoColor=ffffff)](https://conventionalcommits.org/)
@@ -19,6 +19,19 @@
 - [Install](#install)
 - [Use](#use)
 - [API](#api)
+  - [`Reader(file[, start])`](#readerfile-start)
+    - [`Reader#char`](#readerchar)
+    - [`Reader#eof`](#readereof)
+    - [`Reader#index`](#readerindex)
+    - [`Reader#now()`](#readernow)
+    - [`Reader#offset([point])`](#readeroffsetpoint)
+    - [`Reader#peek([k])`](#readerpeekk)
+    - [`Reader#peekMatch(test)`](#readerpeekmatchtest)
+    - [`Reader#point([offset])`](#readerpointoffset)
+    - [`Reader#read([k])`](#readerreadk)
+    - [`Reader#start`](#readerstart)
+  - [`CharacterMatch`](#charactermatch)
+  - [`Character`](#character)
 - [Types](#types)
 - [Contribute](#contribute)
 
@@ -67,7 +80,102 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## API
 
-**TODO**: api
+This package exports the identifier [`Reader`](#readerfile-start). There is no default export.
+
+### `Reader(file[, start])`
+
+Create a new character reader.
+
+Pass a `start` point to make reader locations relative to a specific place. Any point or offset accessed will be
+relative to the given point.
+
+- `file` ([`Value`][vfile-value] | [`VFile`][vfile-api]) &mdash; file to read
+- `start` ([`Point`][point] | `null` | `undefined`) &mdash; point before first character in `file`
+
+#### `Reader#char`
+
+([`Character`](#character)) Current character or `null`. Equivalent to [`reader.peek(0)`](#readerpeekk).
+
+#### `Reader#eof`
+
+(`boolean`) Boolean indicating if reader has reached the end of file, with `true` denoting end of file.
+
+#### `Reader#index`
+
+([`Offset`][offset]) Index of current character.
+
+#### `Reader#now()`
+
+Get the current point in the file.
+
+([`Point`][point]) Current point in file, relative to [`reader#start`](#readerstart).
+
+#### `Reader#offset([point])`
+
+See [`Location#offset([point])`][locationoffset-point].
+
+#### `Reader#peek([k])`
+
+Get the next `k`-th character from the file without changing the position of the reader, with `null` denoting the end of
+file.
+
+##### `Parameters`
+
+- `k` (`number | undefined`) &mdash; difference between index of next `k`-th character and index of current character
+  - **default**: `1`
+
+##### `Returns`
+
+([`Character`](#character)) Peeked character or `null`.
+
+#### `Reader#peekMatch(test)`
+
+Get the next match from the file without changing the position of the reader, with `null` denoting no match.
+
+##### `Parameters`
+
+- `test` (`RegExp`) &mdash; character test
+
+##### `Returns`
+
+([`CharacterMatch`](#charactermatch)) Peeked character match or `null`.
+
+#### `Reader#point([offset])`
+
+See [`Location#point([offset])`][locationpoint-offset].
+
+#### `Reader#read([k])`
+
+Get the next `k`-th character from the file, with `null` denoting the end of file.
+
+##### `Parameters`
+
+- `k` (`number | undefined`) &mdash; difference between index of next `k`-th character and index of current character
+  - **default**: `1`
+
+##### `Returns`
+
+([`Character`](#character)) Next `k`-th character or `null`.
+
+#### `Reader#start`
+
+([`Point`][point]) Point before first character in file.
+
+#### `CharacterMatch`
+
+Match in a source file, with `null` denoting no match (TypeScript type).
+
+```ts
+type CharacterMatch = RegExpExecArray | null
+```
+
+#### `Character`
+
+Character in a source file, with `null` denoting the end of file (TypeScript type).
+
+```ts
+type Character = string | null
+```
 
 ## Types
 
@@ -82,6 +190,12 @@ community you agree to abide by its terms.
 
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 [esmsh]: https://esm.sh/
+[locationoffset-point]: https://github.com/flex-development/vfile-location#locationoffsetpoint
+[locationpoint-offset]: https://github.com/flex-development/vfile-location#locationpointoffset
+[offset]: https://github.com/flex-development/unist-util-types#offset
+[point]: https://github.com/flex-development/vfile-location#point
 [typescript]: https://www.typescriptlang.org
+[vfile-api]: https://github.com/vfile/vfile#vfileoptions
+[vfile-value]: https://github.com/vfile/vfile#value
 [vfile]: https://github.com/vfile/vfile
 [yarn]: https://yarnpkg.com
