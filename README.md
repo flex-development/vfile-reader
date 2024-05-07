@@ -110,6 +110,8 @@ relative to the given point.
 
 Get the current point in the file.
 
+##### `Returns`
+
 ([`Point`][point]) Current point in file, relative to [`reader#start`](#readerstart).
 
 #### `Reader#offset([point])`
