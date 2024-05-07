@@ -3,8 +3,8 @@
  * @module vfile-reader/tests/unit/Reader
  */
 
-import { set } from '@flex-development/tutils'
-import { type Point } from '@flex-development/vfile-location'
+import { define } from '@flex-development/tutils'
+import type { Point } from '@flex-development/vfile-location'
 import { read } from 'to-vfile'
 import type { VFile, Value } from 'vfile'
 import TestSubject from '../reader'
@@ -20,12 +20,15 @@ describe('unit:Reader', () => {
   })
 
   describe('#char', () => {
-    it('should return current character without changing position', () => {
-      // Arrange
-      const k: number = 0
-      const subject: TestSubject = new TestSubject(file)
+    let k: number
+    let subject: TestSubject
 
-      // Act + Expect
+    beforeAll(() => {
+      k = 0
+      subject = new TestSubject(file)
+    })
+
+    it('should return current character without changing position', () => {
       expect(subject.char).to.eq(subject.peek(k)).and.eq(subject.peek(k))
     })
   })
@@ -44,7 +47,7 @@ describe('unit:Reader', () => {
       const subject: TestSubject = new TestSubject(file)
 
       // Act + Expect
-      expect(set(subject, 'position', length + 1).eof).to.be.true
+      expect(define(subject, 'position', { value: length + 1 }).eof).to.be.true
     })
   })
 
@@ -98,7 +101,7 @@ describe('unit:Reader', () => {
     let subject: TestSubject
 
     afterEach(() => {
-      set(subject, 'position', 0)
+      define(subject, 'position', { value: 0 })
     })
 
     beforeAll(() => {
@@ -124,11 +127,26 @@ describe('unit:Reader', () => {
     })
   })
 
+  describe('#previous', () => {
+    let k: number
+    let subject: TestSubject
+
+    beforeAll(() => {
+      k = -1
+      subject = new TestSubject(file)
+      define(subject, 'position', { value: 1 })
+    })
+
+    it('should return previous character without changing position', () => {
+      expect(subject.previous).to.eq(subject.peek(k)).and.eq(subject.peek(k))
+    })
+  })
+
   describe('#read', () => {
     let subject: TestSubject
 
     afterEach(() => {
-      set(subject, 'position', 0)
+      define(subject, 'position', { value: 0 })
     })
 
     beforeAll(() => {

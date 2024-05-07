@@ -60,7 +60,7 @@ class Reader extends Location {
 
   /**
    * Get the current character without changing the position of the reader, with
-   * `null` denoting the end of file.
+   * `null` denoting end of file.
    *
    * @see {@linkcode Character}
    *
@@ -100,6 +100,21 @@ class Reader extends Location {
   }
 
   /**
+   * Get the previous character without changing the position of the reader,
+   * with `null` denoting beginning or end of file.
+   *
+   * @see {@linkcode Character}
+   *
+   * @public
+   * @instance
+   *
+   * @return {Character} Previous character or `null`
+   */
+  public get previous(): Character {
+    return this.peek(-1)
+  }
+
+  /**
    * Get the current point in the file.
    *
    * @see {@linkcode Point}
@@ -115,7 +130,7 @@ class Reader extends Location {
 
   /**
    * Get the next `k`-th character from the file without changing the position
-   * of the reader, with `null` denoting the end of file.
+   * of the reader, with `null` denoting end of file.
    *
    * @see {@linkcode Character}
    *
@@ -149,8 +164,8 @@ class Reader extends Location {
   }
 
   /**
-   * Get the next `k`-th character from the file, with `null` denoting the end
-   * of file.
+   * Get the next `k`-th character from the file, with `null` denoting end of
+   * file.
    *
    * Unlike {@linkcode peek}, this method changes the position of the reader.
    *

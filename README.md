@@ -28,6 +28,7 @@
     - [`Reader#peek([k])`](#readerpeekk)
     - [`Reader#peekMatch(test)`](#readerpeekmatchtest)
     - [`Reader#point([offset])`](#readerpointoffset)
+    - [`Reader#previous`](#readerprevious)
     - [`Reader#read([k])`](#readerreadk)
     - [`Reader#start`](#readerstart)
   - [`CharacterMatch`](#charactermatch)
@@ -94,7 +95,8 @@ relative to the given point.
 
 #### `Reader#char`
 
-([`Character`](#character)) Current character or `null`. Equivalent to [`reader.peek(0)`](#readerpeekk).
+([`Character`](#character)) Current character or `null`, with `null` denoting end of file. Equivalent to
+[`reader.peek(0)`](#readerpeekk).
 
 #### `Reader#eof`
 
@@ -116,7 +118,7 @@ See [`Location#offset([point])`][locationoffset-point].
 
 #### `Reader#peek([k])`
 
-Get the next `k`-th character from the file without changing the position of the reader, with `null` denoting the end of
+Get the next `k`-th character from the file without changing the position of the reader, with `null` denoting end of
 file.
 
 ##### `Parameters`
@@ -144,9 +146,16 @@ Get the next match from the file without changing the position of the reader, wi
 
 See [`Location#point([offset])`][locationpoint-offset].
 
+#### `Reader#previous`
+
+([`Character`](#character)) Previous character or `null`, with `null` denoting beginning or end of file. Equivalent to
+[`reader.peek(-1)`](#readerpeekk).
+
 #### `Reader#read([k])`
 
-Get the next `k`-th character from the file, with `null` denoting the end of file.
+Get the next `k`-th character from the file, with `null` denoting end of file.
+
+Unlike [`peek`](#readerpeekk), this method changes the position of the reader.
 
 ##### `Parameters`
 
