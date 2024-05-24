@@ -42,7 +42,8 @@ This package implements an input reader that can be used to read characters from
 
 ## When should I use this?
 
-**TODO**: when should I use this?
+This package is useful when characters need to be read individually or by regex match, such as when building a parser or
+tokenizer.
 
 ## Install
 
