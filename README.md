@@ -38,7 +38,7 @@
 
 ## What is this?
 
-**TODO**: what is this?
+This package implements an input reader that can be used to read characters from a file.
 
 ## When should I use this?
 
