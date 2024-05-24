@@ -78,7 +78,16 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## Use
 
-**TODO**: use
+```ts
+import { Reader } from '@flex-development/vfile-reader'
+import { read } from 'to-vfile'
+import type { VFile } from 'vfile'
+
+const file: VFile = await read('hrt.ts')
+const reader: Reader = new Reader(file)
+
+while (!reader.eof) console.log(reader.read())
+```
 
 ## API
 
