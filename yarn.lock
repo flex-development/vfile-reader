@@ -1832,14 +1832,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/vfile-location@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@flex-development/vfile-location@npm:1.0.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fvfile-location%2F1.0.0%2Fe4bc37418ca970080ece98fa71602f9f2f8bff04"
+"@flex-development/vfile-location@npm:1.0.1":
+  version: 1.0.1
+  resolution: "@flex-development/vfile-location@npm:1.0.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fvfile-location%2F1.0.1%2F79df979602163f1ede1c29e00ad0ebec00c8e658"
   dependencies:
     "@flex-development/unist-util-types": "npm:1.4.0"
     "@types/unist": "npm:3.0.2"
     vfile: "npm:6.0.1"
-  checksum: 10/eb77ba5d5c8b486da1c84b03246afd26aa236ddf76a498c9d9a09419138fd29e988826c0bb0ef90b08ef9760b79d7424f0760266000d79eb107306e1e811ea61
+  checksum: 10/2deaf57809d7fb58e4432bc1cb576ef651596e42eb99bbd41de7312ec7b453d678d91d6b3cc5cca6111d0dbb690aa0950a5e2d09a83511a8e33579c2a6d43465
   languageName: node
   linkType: hard
 
@@ -1860,7 +1860,7 @@ __metadata:
     "@flex-development/pathe": "npm:2.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.25"
     "@flex-development/unist-util-types": "npm:1.4.0"
-    "@flex-development/vfile-location": "npm:1.0.0"
+    "@flex-development/vfile-location": "npm:1.0.1"
     "@html-eslint/eslint-plugin": "npm:0.24.1"
     "@html-eslint/parser": "npm:0.24.1"
     "@types/chai": "npm:4.3.16"
