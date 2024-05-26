@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/flex-development/vfile-reader/compare/1.0.0...1.0.1) (2024-05-26)
+
+### :package: Build
+
+- [[`d660022`](https://github.com/flex-development/vfile-reader/commit/d660022600ebfc94236fa77b6e5f543a467cc41e)] **deps-dev:** Bump cspell from 8.8.2 to 8.8.3 ([#39](https://github.com/flex-development/vfile-reader/issues/39))
+- [[`9ac705e`](https://github.com/flex-development/vfile-reader/commit/9ac705e0e9e2513877979fa1458dd36637fbfef2)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.2.5 to 48.2.6 ([#37](https://github.com/flex-development/vfile-reader/issues/37))
+- [[`fe1b09a`](https://github.com/flex-development/vfile-reader/commit/fe1b09a713f6e6449bd63a90d320bf12e42a0889)] **deps:** bump @flex-development/vfile-location from 1.0.0 to 1.0.1
+
 ## 1.0.0 (2024-05-23)
 
 ### :package: Build
@@ -40,5 +48,6 @@
 ### :house_with_garden: Housekeeping
 
 - [[`a512390`](https://github.com/flex-development/vfile-reader/commit/a512390df6e0b65146ca8d3516622fa1e48a6c21)] initial commit
+
 
 
