@@ -18,6 +18,16 @@ import type { Character, CharacterMatch } from './types'
  */
 class Reader extends Location {
   /**
+   * Characters in file.
+   *
+   * @protected
+   * @readonly
+   * @instance
+   * @member {ReadonlyArray<string>} characters
+   */
+  protected readonly characters!: readonly string[]
+
+  /**
    * Current position in file.
    *
    * @protected
@@ -50,11 +60,12 @@ class Reader extends Location {
    * @param {(Point | null)?} [start] - Point before first character in `file`
    */
   constructor(file: Value | VFile, start?: Point | null) {
-    super(file, start)
+    super(file = String(file), start)
 
     Object.defineProperties(this, {
+      characters: { enumerable: false, value: [...file] },
       position: { enumerable: false, value: 0 },
-      source: { enumerable: false, value: String(file) }
+      source: { enumerable: false, value: file }
     })
   }
 
@@ -82,7 +93,7 @@ class Reader extends Location {
    * @return {boolean} `true` if at end of file, `false` otherwise
    */
   public get eof(): boolean {
-    return this.index >= this.source.length
+    return this.index >= this.characters.length
   }
 
   /**
@@ -142,7 +153,7 @@ class Reader extends Location {
    * @return {Character} Peeked character or `null`
    */
   public peek(k: number = 1): Character {
-    return this.source[this.index + k] ?? null
+    return this.characters[this.index + k] ?? null
   }
 
   /**
@@ -178,7 +189,7 @@ class Reader extends Location {
    * @return {Character} Next `k`-th character or `null`
    */
   public read(k: number = 1): Character {
-    return this.source[this.position += k] ?? null
+    return this.characters[this.position += k] ?? null
   }
 }
 

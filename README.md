@@ -83,10 +83,22 @@ import { Reader } from '@flex-development/vfile-reader'
 import { read } from 'to-vfile'
 import type { VFile } from 'vfile'
 
-const file: VFile = await read('hrt.ts')
+const file: VFile = await read('regex.txt')
 const reader: Reader = new Reader(file)
 
-while (!reader.eof) console.log(reader.read())
+while (!reader.eof) console.dir(reader.read())
+```
+
+...yields
+
+```sh
+'👍'
+'🚀'
+'❇'
+'️'
+'/'
+'\n'
+null
 ```
 
 ## API
