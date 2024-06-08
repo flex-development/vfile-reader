@@ -159,7 +159,6 @@ class Reader extends Location {
    * @return {CharacterMatch} Peeked character match or `null`
    */
   public peekMatch(test: RegExp): CharacterMatch {
-    test.lastIndex = this.index
     return test.exec(this.source.slice(this.index))
   }
 
