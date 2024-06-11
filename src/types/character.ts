@@ -4,7 +4,7 @@
  */
 
 /**
- * Character in a source file, with `null` denoting the end of file.
+ * Character in a source file, with `null` denoting end of file.
  */
 type Character = string | null
 

@@ -10,7 +10,7 @@
 [![vitest](https://img.shields.io/badge/-vitest-6e9f18?style=flat&logo=vitest&logoColor=ffffff)](https://vitest.dev/)
 [![yarn](https://img.shields.io/badge/-yarn-2c8ebb?style=flat&logo=yarn&logoColor=ffffff)](https://yarnpkg.com/)
 
-[vfile][vfile] utility to read characters from a file
+[vfile][vfile] utility to read from a file
 
 ## Contents
 
@@ -36,8 +36,11 @@
     - [`Reader#start`](#readerstart)
   - [`CharacterReader(file[, start])`](#characterreaderfile-start)
     - [`CharacterReader#peekMatch(test)`](#characterreaderpeekmatchtest)
+  - [`CodeReader(file[, start])`](#codereaderfile-start)
+    - [`CodeReader#stringify(...codes)`](#codereaderstringifycodes)
   - [`CharacterMatch`](#charactermatch)
   - [`Character`](#character)
+  - [`Code`](#code)
   - [`ReaderIterator<T>`](#readeriteratort)
   - [`ReaderIteratorResult`](#readeriteratorresult)
   - [`ReaderValue`](#readervalue)
@@ -46,12 +49,12 @@
 
 ## What is this?
 
-This package implements an input reader that can be used to read characters from a file.
+This package implements an input reader that can be used to read characters and code points from a file.
 
 ## When should I use this?
 
-This package is useful when characters need to be read individually or by regex match, such as when building a parser or
-tokenizer.
+This package is useful when characters or code points need to be processed individually or as a group, such as when
+building a parser or tokenizer.
 
 ## Install
 
@@ -73,42 +76,50 @@ yarn add @flex-development/vfile-reader
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { CharacterReader } from 'https://esm.sh/@flex-development/vfile-reader'
+import { CharacterReader, CodeReader } from 'https://esm.sh/@flex-development/vfile-reader'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { CharacterReader } from 'https://esm.sh/@flex-development/vfile-reader'
+  import { CharacterReader, CodeReader } from 'https://esm.sh/@flex-development/vfile-reader'
 </script>
 ```
 
 ## Use
 
 ```ts
-import { CharacterReader } from '@flex-development/vfile-reader'
+import { CharacterReader, CodeReader } from '@flex-development/vfile-reader'
 import { read } from 'to-vfile'
 import type { VFile } from 'vfile'
 
 const file: VFile = await read('__fixtures__/emojis.txt') // 😍👍🚀❇️
 
 const chars: CharacterReader = new CharacterReader(file)
+const codes: CodeReader = new CodeReader(file)
 
 // for (const char of chars) console.dir({ char, now: chars.now() })
+// for (const code of codes) console.dir({ code, now: codes.now() })
 
-while (!chars.eof) console.dir({ char: chars.read(), now: chars.now() })
+while (!chars.eof) {
+  console.dir({
+    char: chars.read(),
+    code: codes.read(),
+    now: codes.now()
+  })
+}
 ```
 
 ...yields
 
 ```sh
-{ char: '😍', now: { column: 1, line: 1, offset: 0 } }
-{ char: '👍', now: { column: 2, line: 1, offset: 1 } }
-{ char: '🚀', now: { column: 3, line: 1, offset: 2 } }
-{ char: '❇', now: { column: 4, line: 1, offset: 3 } }
-{ char: '️', now: { column: 5, line: 1, offset: 4 } }
-{ char: '\n', now: { column: 6, line: 1, offset: 5 } }
+{ char: '😍', code: 128525, now: { column: 1, line: 1, offset: 0 } }
+{ char: '👍', code: 128077, now: { column: 2, line: 1, offset: 1 } }
+{ char: '🚀', code: 128640, now: { column: 3, line: 1, offset: 2 } }
+{ char: '❇', code: 10055, now: { column: 4, line: 1, offset: 3 } }
+{ char: '️', code: 65039, now: { column: 5, line: 1, offset: 4 } }
+{ char: '\n', code: 10, now: { column: 6, line: 1, offset: 5 } }
 ```
 
 ## API
@@ -251,7 +262,7 @@ position of the reader.
 
 ### `CharacterReader(file[, start])`
 
-> **extends**: [`Reader`](#readerfile-start)
+> **extends**: `Reader<Character>`
 
 Create a new character reader.
 
@@ -267,6 +278,24 @@ Get the next match from the file without changing the position of the reader, wi
 
 ([`CharacterMatch`](#charactermatch)) Peeked character match or `null`.
 
+### `CodeReader(file[, start])`
+
+> **extends**: `Reader<Code>`
+
+Create a new code point reader.
+
+#### `CodeReader#stringify(...codes)`
+
+Convert the specified sequence of code points to a string.
+
+##### `Parameters`
+
+- `...codes` ([`Code[]`](#code)) &mdash; code points sequence
+
+##### `Returns`
+
+(`string`) String created from code point sequence.
+
 ### `CharacterMatch`
 
 Match in a source file, with `null` denoting no match (TypeScript type).
@@ -277,10 +306,19 @@ type CharacterMatch = RegExpExecArray | null
 
 ### `Character`
 
-Character in a source file, with `null` denoting the end of file (TypeScript type).
+Character in a source file, with `null` denoting end of file (TypeScript type).
 
 ```ts
 type Character = string | null
+```
+
+### `Code`
+
+An integer between `0` and `0x10FFFF` (inclusive) representing a Unicode code point in a source file, with `null`
+denoting end of file (TypeScript type).
+
+```ts
+type Code = number | null
 ```
 
 ### `ReaderIterator<T>`
@@ -306,10 +344,10 @@ type ReaderIteratorResult<
 
 ### `ReaderValue`
 
-Union of input reader output values (TypeScript type).
+Character or code point in a source file, with `null` denoting the end of file (TypeScript type).
 
 ```ts
-type ReaderValue = Character
+type ReaderValue = Character | Code
 ```
 
 ## Types

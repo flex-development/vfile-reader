@@ -5,5 +5,6 @@
 
 export type { default as Character } from './character'
 export type { default as CharacterMatch } from './character-match'
+export type { default as Code } from './code'
 export type { default as ReaderIteratorResult } from './reader-iterator-result'
 export type { default as ReaderValue } from './reader-value'

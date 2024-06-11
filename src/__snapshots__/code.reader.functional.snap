@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`functional:CodeReader > iterator > should iterate over all code points 1`] = `
+[
+  128525,
+  128077,
+  128640,
+  10055,
+  65039,
+  10,
+]
+`;

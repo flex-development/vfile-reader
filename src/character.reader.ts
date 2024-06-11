@@ -15,9 +15,9 @@ import type { Character, CharacterMatch } from './types'
  * @see {@linkcode Reader}
  *
  * @class
- * @extends {Reader}
+ * @extends {Reader<Character>}
  */
-class CharacterReader extends Reader {
+class CharacterReader extends Reader<Character> {
   /**
    * Characters in file.
    *

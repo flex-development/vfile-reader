@@ -10,13 +10,13 @@ describe('unit-d:types/ReaderIteratorResult', () => {
   type T = Character
 
   it('should extract IteratorReturnResult<T>', () => {
-    expectTypeOf<TestSubject>()
+    expectTypeOf<TestSubject<T>>()
       .extract<IteratorReturnResult<T>>()
       .not.toBeNever()
   })
 
   it('should extract IteratorYieldResult<T>', () => {
-    expectTypeOf<TestSubject>()
+    expectTypeOf<TestSubject<T>>()
       .extract<IteratorYieldResult<T>>()
       .not.toBeNever()
   })
