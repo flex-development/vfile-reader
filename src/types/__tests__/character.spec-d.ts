@@ -3,11 +3,14 @@
  * @module vfile-reader/types/tests/unit-d/Character
  */
 
-import type { Nullable } from '@flex-development/tutils'
 import type TestSubject from '../character'
 
 describe('unit-d:types/Character', () => {
-  it('should equal string | null', () => {
-    expectTypeOf<TestSubject>().toEqualTypeOf<Nullable<string>>()
+  it('should extract string', () => {
+    expectTypeOf<TestSubject>().extract<string>().not.toBeNever()
+  })
+
+  it('should extract null', () => {
+    expectTypeOf<TestSubject>().extract<null>().not.toBeNever()
   })
 })

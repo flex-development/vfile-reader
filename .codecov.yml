@@ -90,4 +90,4 @@ ignore:
 
 profiling:
   critical_files_paths:
-    - src/reader.ts
+    - src/character.reader.ts

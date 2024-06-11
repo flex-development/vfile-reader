@@ -4,7 +4,7 @@
  */
 
 import type { Location } from '@flex-development/vfile-location'
-import type TestSubject from '../reader'
+import type TestSubject from '../abstract.reader'
 
 describe('unit-d:Reader', () => {
   it('should extend Location', () => {

@@ -5,6 +5,7 @@
 **/*.patch
 **/*.sh
 **/*.snap
+**/*.txt
 **/*config.*.timestamp*
 **/.DS_Store
 **/.temp/

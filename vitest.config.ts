@@ -7,6 +7,7 @@
 import pathe from '@flex-development/pathe'
 import { ifelse, includes, sift } from '@flex-development/tutils'
 import ci from 'is-ci'
+import tsconfigPaths from 'vite-tsconfig-paths'
 import {
   defineConfig,
   type ConfigEnv,
@@ -40,6 +41,7 @@ const config: UserConfigExport = defineConfig((env: ConfigEnv): UserConfig => {
 
   return {
     define: {},
+    plugins: [tsconfigPaths({ projects: [tsconfig] })],
     test: {
       allowOnly: !ci,
       benchmark: {
