@@ -1,3 +1,22 @@
+## [2.0.0](https://github.com/flex-development/vfile-reader/compare/1.0.2...2.0.0) (2024-06-11)
+
+### ⚠ BREAKING CHANGES
+
+- abstract reader implementation
+
+### :package: Build
+
+- [[`a974d58`](https://github.com/flex-development/vfile-reader/commit/a974d583d5f2a50e820ad4139633d2a6a79871e8)] **deps-dev:** Bump dprint from 0.46.1 to 0.46.2 ([#67](https://github.com/flex-development/vfile-reader/issues/67))
+- [[`28a9d5c`](https://github.com/flex-development/vfile-reader/commit/28a9d5c8d385c6c67261335449b48af87b076d93)] **deps-dev:** Bump esbuild from 0.21.4 to 0.21.5 ([#66](https://github.com/flex-development/vfile-reader/issues/66))
+
+### :sparkles: Features
+
+- [[`7fca10d`](https://github.com/flex-development/vfile-reader/commit/7fca10d5be93c2c546f173708000f14c9cef44a9)] `CodeReader`
+
+### :mechanical_arm: Refactors
+
+- [[`2a803f4`](https://github.com/flex-development/vfile-reader/commit/2a803f4c10e492390a5cd0341cf849f79f97a96c)] abstract reader implementation
+
 ## [1.0.2](https://github.com/flex-development/vfile-reader/compare/1.0.1...1.0.2) (2024-06-08)
 
 ### :package: Build
@@ -77,6 +96,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`a512390`](https://github.com/flex-development/vfile-reader/commit/a512390df6e0b65146ca8d3516622fa1e48a6c21)] initial commit
+
 
 
 
