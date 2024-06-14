@@ -45,6 +45,7 @@
   - [`ReaderIteratorResult`](#readeriteratorresult)
   - [`ReaderValue`](#readervalue)
 - [Types](#types)
+- [Related](#related)
 - [Contribute](#contribute)
 
 ## What is this?
@@ -354,6 +355,10 @@ type ReaderValue = Character | Code
 
 This package is fully typed with [TypeScript][typescript].
 
+## Related
+
+- [`vfile-location`][vfile-location] &mdash; [vfile][vfile] utility to convert between point and offset based locations
+
 ## Contribute
 
 See [`CONTRIBUTING.md`](CONTRIBUTING.md).
@@ -370,6 +375,7 @@ community you agree to abide by its terms.
 [point]: https://github.com/flex-development/vfile-location#point
 [typescript]: https://www.typescriptlang.org
 [vfile-api]: https://github.com/vfile/vfile#vfileoptions
+[vfile-location]: https://github.com/flex-development/vfile-location
 [vfile-value]: https://github.com/vfile/vfile#value
 [vfile]: https://github.com/vfile/vfile
 [yarn]: https://yarnpkg.com
