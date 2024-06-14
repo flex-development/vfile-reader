@@ -7,7 +7,7 @@ import type Character from './character'
 import type Code from './code'
 
 /**
- * Character or code point in a source file, with `null` denoting the end of
+ * Character or character code in a source file, with `null` denoting the end of
  * file.
  *
  * @see {@linkcode Character}

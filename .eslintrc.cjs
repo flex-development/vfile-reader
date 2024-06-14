@@ -10,6 +10,15 @@
  */
 const config = {
   extends: ['./.eslintrc.base.cjs'],
+  overrides: [
+    ...require('./.eslintrc.base.cjs').overrides,
+    {
+      files: ['src/codes.ts'],
+      rules: {
+        'sort-keys': 0
+      }
+    }
+  ],
   root: true
 }
 

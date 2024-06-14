@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`functional:CodeReader > iterator > should iterate over all code points 1`] = `
+exports[`functional:CodeReader > iterator > should iterate over all codes 1`] = `
 [
   128525,
   128077,

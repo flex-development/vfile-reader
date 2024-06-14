@@ -3,13 +3,13 @@
  * @module vfile-reader/CodeReader
  */
 
-import { type Point } from '@flex-development/vfile-location'
+import type { Point } from '@flex-development/vfile-location'
 import type { VFile, Value } from 'vfile'
 import Reader from './abstract.reader'
 import type { Code } from './types'
 
 /**
- * Code point reader.
+ * Character code reader.
  *
  * @see {@linkcode Code}
  * @see {@linkcode Reader}
@@ -19,7 +19,7 @@ import type { Code } from './types'
  */
 class CodeReader extends Reader<Code> {
   /**
-   * Code points in file.
+   * Character codes in file.
    *
    * @see {@linkcode Code}
    *
@@ -31,7 +31,7 @@ class CodeReader extends Reader<Code> {
   protected readonly values!: readonly NonNullable<Code>[]
 
   /**
-   * Create a new code point reader.
+   * Create a new character code reader.
    *
    * Pass a `start` point to make reader locations relative to a specific place.
    * Any point or offset accessed will be relative to the given point.
@@ -41,7 +41,7 @@ class CodeReader extends Reader<Code> {
    * @see {@linkcode Value}
    *
    * @param {Value | VFile} file - File to read
-   * @param {(Point | null)?} [start] - Point before first code point in `file`
+   * @param {(Point | null)?} [start] - Point before first code in `file`
    */
   constructor(file: Value | VFile, start?: Point | null) {
     super(file, start)
@@ -55,7 +55,7 @@ class CodeReader extends Reader<Code> {
   }
 
   /**
-   * Get the current code point without changing the position of the reader,
+   * Get the current character code without changing the position of the reader,
    * with `null` denoting end of file.
    *
    * @see {@linkcode Code}
@@ -64,15 +64,15 @@ class CodeReader extends Reader<Code> {
    * @override
    * @instance
    *
-   * @return {Code} Current code point or `null`
+   * @return {Code} Current character code or `null`
    */
   public override get output(): Code {
     return super.output
   }
 
   /**
-   * Get the previous code point without changing the position of the reader,
-   * with `null` denoting beginning or end of file.
+   * Get the previous character code without changing the position of the
+   * reader, with `null` denoting beginning or end of file.
    *
    * @see {@linkcode Code}
    *
@@ -80,15 +80,15 @@ class CodeReader extends Reader<Code> {
    * @override
    * @instance
    *
-   * @return {Code} Previous code point or `null`
+   * @return {Code} Previous character code or `null`
    */
   public override get previous(): Code {
     return super.previous
   }
 
   /**
-   * Get the next `k`-th code point from the file without changing the position
-   * of the reader, with `null` denoting end of file.
+   * Get the next `k`-th character code from the file without changing the
+   * position of the reader, with `null` denoting end of file.
    *
    * @see {@linkcode Code}
    *
@@ -96,17 +96,17 @@ class CodeReader extends Reader<Code> {
    * @override
    * @instance
    *
-   * @param {number?} [k=1] - Difference between index of next `k`-th code point
-   * and index of current code point
-   * @return {Code} Peeked code point or `null`
+   * @param {number?} [k=1] - Difference between index of next `k`-th character
+   * code and index of current character code
+   * @return {Code} Peeked character code or `null`
    */
   public override peek(k: number = 1): Code {
     return super.peek(k)
   }
 
   /**
-   * Get the next `k`-th code point from the file, with `null` denoting end of
-   * file.
+   * Get the next `k`-th character code from the file, with `null` denoting end
+   * of file.
    *
    * Unlike {@linkcode peek}, this method changes the position of the reader.
    *
@@ -116,32 +116,32 @@ class CodeReader extends Reader<Code> {
    * @override
    * @instance
    *
-   * @param {number?} [k=1] - Difference between index of next `k`-th code point
-   * and index of current code point
-   * @return {Code} Next `k`-th code point or `null`
+   * @param {number?} [k=1] - Difference between index of next `k`-th character
+   * code and index of current character code
+   * @return {Code} Next `k`-th character code or `null`
    */
   public override read(k: number = 1): Code {
     return super.read(k)
   }
 
   /**
-   * Convert the specified sequence of code points to a string.
+   * Convert the specified sequence of character codes to a string.
    *
    * @see {@linkcode Code}
    *
    * @public
    * @instance
    *
-   * @param {Code[]} codes - Code points sequence
-   * @return {string} String created from code point sequence
+   * @param {Code[]} codes - Character code sequence
+   * @return {string} String created from character code sequence
    */
   public serialize(...codes: Code[]): string {
     return String.fromCodePoint(...(<NonNullable<Code>[]>codes))
   }
 
   /**
-   * Get a slice of the most recent code points, with the last value being the
-   * current code point, without changing the position of the reader.
+   * Get a slice of the most recent character codes, with the last code being
+   * the current character code, without changing the position of the reader.
    *
    * @see {@linkcode Code}
    *
@@ -149,7 +149,7 @@ class CodeReader extends Reader<Code> {
    * @override
    * @instance
    *
-   * @param {number} m - Maximum number of code points to include in slice
+   * @param {number} m - Maximum number of character codes to include in slice
    * @return {NonNullable<Code>[]} Code points slice
    */
   public override slice(m: number): NonNullable<Code>[] {

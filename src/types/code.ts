@@ -4,8 +4,10 @@
  */
 
 /**
- * An integer between `0` and `0x10FFFF` (inclusive) representing a Unicode code
- * point in a source file, with `null` denoting end of file.
+ * Character code ([code point][codepointat]) in a source file, with `null`
+ * denoting end of file.
+ *
+ * [codepointat]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt
  */
 type Code = number | null
 

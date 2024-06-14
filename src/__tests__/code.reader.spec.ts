@@ -17,14 +17,14 @@ describe('unit:CodeReader', () => {
   })
 
   describe('#output', () => {
-    it('should return current code point without changing position', () => {
+    it('should return current code without changing position', () => {
       expect(subject.output).to.equal(subject.peek(0))
       expect(subject.index).to.eq(index)
     })
   })
 
   describe('#previous', () => {
-    it('should return previous code point without changing position', () => {
+    it('should return previous code without changing position', () => {
       expect(subject.previous).to.eq(subject.peek(-1))
       expect(subject.index).to.eq(index)
     })

@@ -100,7 +100,7 @@ describe('functional:CodeReader', () => {
   })
 
   describe('iterator', () => {
-    it('should iterate over all code points', () => {
+    it('should iterate over all codes', () => {
       // Arrange
       const codes: Code[] = []
 

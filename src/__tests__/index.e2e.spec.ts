@@ -10,7 +10,9 @@ describe('e2e:vfile-reader', () => {
     expect(testSubject).to.have.keys([
       'CharacterReader',
       'CodeReader',
-      'Reader'
+      'Reader',
+      'chars',
+      'codes'
     ])
   })
 })

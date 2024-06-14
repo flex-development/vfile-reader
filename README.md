@@ -38,6 +38,8 @@
     - [`CharacterReader#peekMatch(test)`](#characterreaderpeekmatchtest)
   - [`CodeReader(file[, start])`](#codereaderfile-start)
     - [`CodeReader#serialize(...codes)`](#codereaderserializecodes)
+  - [`chars`](#chars)
+  - [`codes`](#codes)
   - [`CharacterMatch`](#charactermatch)
   - [`Character`](#character)
   - [`Code`](#code)
@@ -50,12 +52,13 @@
 
 ## What is this?
 
-This package implements an input reader that can be used to read characters and code points from a file.
+This package implements an input reader that can be used to read characters and character codes (code points) from a
+file.
 
 ## When should I use this?
 
-This package is useful when characters or code points need to be processed individually or as a group, such as when
-building a parser or tokenizer.
+This package is useful when characters or codes need to be read individually or as a group, such as when building a
+parser or tokenizer.
 
 ## Install
 
@@ -77,14 +80,24 @@ yarn add @flex-development/vfile-reader
 In Deno with [`esm.sh`][esmsh]:
 
 ```ts
-import { CharacterReader, CodeReader } from 'https://esm.sh/@flex-development/vfile-reader'
+import {
+  CharacterReader,
+  CodeReader,
+  chars,
+  codes
+} from 'https://esm.sh/@flex-development/vfile-reader'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import { CharacterReader, CodeReader } from 'https://esm.sh/@flex-development/vfile-reader'
+  import {
+    CharacterReader,
+    CodeReader,
+    chars,
+    codes
+  } from 'https://esm.sh/@flex-development/vfile-reader'
 </script>
 ```
 
@@ -130,6 +143,8 @@ This package exports the following identifiers:
 
 - [`CharacterReader`](#characterreaderfile-start)
 - [`Reader`](#readerfile-start)
+- [`chars`](#chars)
+- [`codes`](#codes)
 
 There is no default export.
 
@@ -284,19 +299,27 @@ Get the next match from the file without changing the position of the reader, wi
 
 > **extends**: `Reader<Code>`
 
-Create a new code point reader.
+Create a new character code reader.
 
 #### `CodeReader#serialize(...codes)`
 
-Convert the specified sequence of code points to a string.
+Convert the specified sequence of character codes to a string.
 
 ##### `Parameters`
 
-- `...codes` ([`Code[]`](#code)) &mdash; code points sequence
+- `...codes` ([`Code[]`](#code)) &mdash; character code sequence
 
 ##### `Returns`
 
-(`string`) String created from code point sequence.
+(`string`) String created from character code sequence.
+
+### `chars`
+
+Character dictionary.
+
+### `codes`
+
+Character code dictionary.
 
 ### `CharacterMatch`
 
@@ -316,8 +339,7 @@ type Character = string | null
 
 ### `Code`
 
-An integer between `0` and `0x10FFFF` (inclusive) representing a Unicode code point in a source file, with `null`
-denoting end of file (TypeScript type).
+Character code ([code point][codepointat]) in a source file, with `null` denoting end of file (TypeScript type).
 
 ```ts
 type Code = number | null
@@ -346,7 +368,7 @@ type ReaderIteratorResult<
 
 ### `ReaderValue`
 
-Character or code point in a source file, with `null` denoting the end of file (TypeScript type).
+Character or character code in a source file, with `null` denoting the end of file (TypeScript type).
 
 ```ts
 type ReaderValue = Character | Code
@@ -367,6 +389,7 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 This project has a [code of conduct](CODE_OF_CONDUCT.md). By interacting with this repository, organization, or
 community you agree to abide by its terms.
 
+[codepointat]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt
 [esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 [esmsh]: https://esm.sh/
 [location]: https://github.com/flex-development/vfile-location#locationfile-start
