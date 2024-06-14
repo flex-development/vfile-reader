@@ -55,6 +55,22 @@ class CodeReader extends Reader<Code> {
   }
 
   /**
+   * Convert the specified sequence of character codes to a string.
+   *
+   * @see {@linkcode Code}
+   *
+   * @public
+   * @static
+   * @instance
+   *
+   * @param {Code[]} codes - Character code sequence
+   * @return {string} String created from character code sequence
+   */
+  public static serialize(...codes: Code[]): string {
+    return String.fromCodePoint(...(<NonNullable<Code>[]>codes))
+  }
+
+  /**
    * Get the current character code without changing the position of the reader,
    * with `null` denoting end of file.
    *
@@ -136,7 +152,7 @@ class CodeReader extends Reader<Code> {
    * @return {string} String created from character code sequence
    */
   public serialize(...codes: Code[]): string {
-    return String.fromCodePoint(...(<NonNullable<Code>[]>codes))
+    return CodeReader.serialize(...codes)
   }
 
   /**

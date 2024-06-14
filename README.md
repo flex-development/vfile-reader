@@ -37,7 +37,8 @@
   - [`CharacterReader(file[, start])`](#characterreaderfile-start)
     - [`CharacterReader#peekMatch(test)`](#characterreaderpeekmatchtest)
   - [`CodeReader(file[, start])`](#codereaderfile-start)
-    - [`CodeReader#serialize(...codes)`](#codereaderserializecodes)
+    - [`CodeReader.serialize(...codes)`](#codereaderserializecodes)
+    - [`CodeReader#serialize(...codes)`](#codereaderserializecodes-1)
   - [`chars`](#chars)
   - [`codes`](#codes)
   - [`CharacterMatch`](#charactermatch)
@@ -301,7 +302,7 @@ Get the next match from the file without changing the position of the reader, wi
 
 Create a new character code reader.
 
-#### `CodeReader#serialize(...codes)`
+#### `CodeReader.serialize(...codes)`
 
 Convert the specified sequence of character codes to a string.
 
@@ -312,6 +313,10 @@ Convert the specified sequence of character codes to a string.
 ##### `Returns`
 
 (`string`) String created from character code sequence.
+
+#### `CodeReader#serialize(...codes)`
+
+Instance method equivalent of [`CodeReader.serialize(...codes)`](#codereaderserializecodes).
 
 ### `chars`
 

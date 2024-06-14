@@ -19,6 +19,26 @@ describe('functional:CodeReader', () => {
     subject = new TestSubject(file)
   })
 
+  describe('.serialize', () => {
+    let spy: MockInstance<(typeof String)['fromCodePoint']>
+
+    beforeEach(() => {
+      spy = vi.spyOn(String, 'fromCodePoint')
+    })
+
+    it('should call String.fromCodePoint', () => {
+      // Arrange
+      const codes: Code[] = [10, 13]
+
+      // Act
+      TestSubject.serialize(...codes)
+
+      // Expect
+      expect(spy).toHaveBeenCalledOnce()
+      expect(spy).toHaveBeenCalledWith(...codes)
+    })
+  })
+
   describe('#peek', () => {
     let spy: MockInstance<Reader['peek']>
 
@@ -60,13 +80,13 @@ describe('functional:CodeReader', () => {
   })
 
   describe('#serialize', () => {
-    let spy: MockInstance<(typeof String)['fromCodePoint']>
+    let spy: MockInstance<TestSubject['serialize']>
 
     beforeEach(() => {
-      spy = vi.spyOn(String, 'fromCodePoint')
+      spy = vi.spyOn(TestSubject, 'serialize')
     })
 
-    it('should call String.fromCodePoint', () => {
+    it('should call CodeReader.serialize', () => {
       // Arrange
       const codes: Code[] = [subject.peek(0), subject.peek(1), subject.peek(13)]
 
