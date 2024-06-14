@@ -37,7 +37,7 @@
   - [`CharacterReader(file[, start])`](#characterreaderfile-start)
     - [`CharacterReader#peekMatch(test)`](#characterreaderpeekmatchtest)
   - [`CodeReader(file[, start])`](#codereaderfile-start)
-    - [`CodeReader#stringify(...codes)`](#codereaderstringifycodes)
+    - [`CodeReader#serialize(...codes)`](#codereaderserializecodes)
   - [`CharacterMatch`](#charactermatch)
   - [`Character`](#character)
   - [`Code`](#code)
@@ -286,7 +286,7 @@ Get the next match from the file without changing the position of the reader, wi
 
 Create a new code point reader.
 
-#### `CodeReader#stringify(...codes)`
+#### `CodeReader#serialize(...codes)`
 
 Convert the specified sequence of code points to a string.
 

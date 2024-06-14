@@ -125,6 +125,21 @@ class CodeReader extends Reader<Code> {
   }
 
   /**
+   * Convert the specified sequence of code points to a string.
+   *
+   * @see {@linkcode Code}
+   *
+   * @public
+   * @instance
+   *
+   * @param {Code[]} codes - Code points sequence
+   * @return {string} String created from code point sequence
+   */
+  public serialize(...codes: Code[]): string {
+    return String.fromCodePoint(...(<NonNullable<Code>[]>codes))
+  }
+
+  /**
    * Get a slice of the most recent code points, with the last value being the
    * current code point, without changing the position of the reader.
    *
@@ -139,21 +154,6 @@ class CodeReader extends Reader<Code> {
    */
   public override slice(m: number): NonNullable<Code>[] {
     return super.slice(m)
-  }
-
-  /**
-   * Convert the specified sequence of code points to a string.
-   *
-   * @see {@linkcode Code}
-   *
-   * @public
-   * @instance
-   *
-   * @param {Code[]} codes - Code points sequence
-   * @return {string} String created from code point sequence
-   */
-  public stringify(...codes: Code[]): string {
-    return String.fromCodePoint(...(<NonNullable<Code>[]>codes))
   }
 }
 

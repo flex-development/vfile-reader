@@ -59,6 +59,26 @@ describe('functional:CodeReader', () => {
     })
   })
 
+  describe('#serialize', () => {
+    let spy: MockInstance<(typeof String)['fromCodePoint']>
+
+    beforeEach(() => {
+      spy = vi.spyOn(String, 'fromCodePoint')
+    })
+
+    it('should call String.fromCodePoint', () => {
+      // Arrange
+      const codes: Code[] = [subject.peek(0), subject.peek(1), subject.peek(13)]
+
+      // Act
+      subject.serialize(...codes)
+
+      // Expect
+      expect(spy).toHaveBeenCalledOnce()
+      expect(spy).toHaveBeenCalledWith(...codes)
+    })
+  })
+
   describe('#slice', () => {
     let spy: MockInstance<Reader['slice']>
 
@@ -76,26 +96,6 @@ describe('functional:CodeReader', () => {
       // Expect
       expect(spy).toHaveBeenCalledOnce()
       expect(spy).toHaveBeenCalledWith(m)
-    })
-  })
-
-  describe('#stringify', () => {
-    let spy: MockInstance<(typeof String)['fromCodePoint']>
-
-    beforeEach(() => {
-      spy = vi.spyOn(String, 'fromCodePoint')
-    })
-
-    it('should call String.fromCodePoint', () => {
-      // Arrange
-      const codes: Code[] = [subject.peek(0), subject.peek(1), subject.peek(13)]
-
-      // Act
-      subject.stringify(...codes)
-
-      // Expect
-      expect(spy).toHaveBeenCalledOnce()
-      expect(spy).toHaveBeenCalledWith(...codes)
     })
   })
 
