@@ -89,7 +89,7 @@ abstract class Reader<
    * @return {boolean} `true` if at end of file, `false` otherwise
    */
   public get eof(): boolean {
-    return this.index >= this.values.length - 1
+    return this.index >= this.values.length
   }
 
   /**

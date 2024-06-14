@@ -8,5 +8,6 @@ exports[`functional:CodeReader > iterator > should iterate over all code points 
   10055,
   65039,
   10,
+  null,
 ]
 `;

@@ -60,7 +60,7 @@ describe('unit:Reader', () => {
 
     it('should return true if reader is at end of file', () => {
       // Arrange
-      subject.read(length)
+      subject.read(length + 1)
 
       // Expect
       expect(subject.eof).to.be.true
@@ -68,7 +68,7 @@ describe('unit:Reader', () => {
 
     it('should return true if reader is past end of file', () => {
       // Arrange
-      subject.read(length + 1)
+      subject.read(length + 3)
 
       // Expect
       expect(subject.eof).to.be.true

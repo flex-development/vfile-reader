@@ -4,6 +4,7 @@
     "!**/__fixtures__/**/dist/",
     "!**/__fixtures__/**/node_modules/",
     "!**/typings/**/dist/",
+    "!scratch.ts",
     "**/*.patch",
     "**/*.snap",
     "**/*config.*.timestamp*",
@@ -81,9 +82,9 @@
   },
   "newLineKind": "lf",
   "plugins": [
-    "https://plugins.dprint.dev/typescript-0.88.10.wasm",
-    "https://plugins.dprint.dev/json-0.19.1.wasm",
-    "https://plugins.dprint.dev/markdown-0.16.3.wasm",
+    "https://plugins.dprint.dev/typescript-0.91.1.wasm",
+    "https://plugins.dprint.dev/json-0.19.3.wasm",
+    "https://plugins.dprint.dev/markdown-0.17.1.wasm",
     "https://plugins.dprint.dev/exec-0.4.4.json@c207bf9b9a4ee1f0ecb75c594f774924baf62e8e53a2ce9d873816a408cecbf7"
   ],
   "typescript": {
@@ -98,7 +99,7 @@
     "constructorType.spaceAfterNewKeyword": true,
     "doWhileStatement.spaceAfterWhileKeyword": true,
     "enumDeclaration.memberSpacing": "maintain",
-    "exportDeclaration.forceMultiLine": false,
+    "exportDeclaration.forceMultiLine": "never",
     "exportDeclaration.forceSingleLine": false,
     "exportDeclaration.sortNamedExports": "maintain",
     "exportDeclaration.spaceSurroundingNamedExports": true,
@@ -113,7 +114,7 @@
     "ifStatement.spaceAfterIfKeyword": true,
     "ignoreFileCommentText": "dprint-ignore-file",
     "ignoreNodeCommentText": "dprint-ignore",
-    "importDeclaration.forceMultiLine": false,
+    "importDeclaration.forceMultiLine": "never",
     "importDeclaration.forceSingleLine": false,
     "importDeclaration.sortNamedImports": "maintain",
     "importDeclaration.spaceSurroundingNamedImports": true,

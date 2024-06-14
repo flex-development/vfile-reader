@@ -30,5 +30,6 @@ exports[`functional:CharacterReader > iterator > should iterate over all charact
   "z",
   "
 ",
+  null,
 ]
 `;

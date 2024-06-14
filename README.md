@@ -121,6 +121,7 @@ while (!chars.eof) {
 { char: '❇', code: 10055, now: { column: 4, line: 1, offset: 3 } }
 { char: '️', code: 65039, now: { column: 5, line: 1, offset: 4 } }
 { char: '\n', code: 10, now: { column: 6, line: 1, offset: 5 } }
+{ char: null, code: null, now: { column: 1, line: 2, offset: 6 } }
 ```
 
 ## API
