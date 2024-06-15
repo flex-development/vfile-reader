@@ -1,3 +1,48 @@
+## [3.0.0](https://github.com/flex-development/vfile-reader/compare/2.0.0...3.0.0) (2024-06-14)
+
+### ⚠ BREAKING CHANGES
+
+- `Reader#sliceSerialize`
+- `Reader#slice`
+- [`CodeReader`] `#stringify` -> `#serialize`
+- [`Reader`] eof code regression
+
+### :package: Build
+
+- [[`ca84f53`](https://github.com/flex-development/vfile-reader/commit/ca84f53c451d8ac034fa01b413aa81aa872278bf)] **deps-dev:** Bump eslint-plugin-chai-expect from 3.0.0 to 3.1.0 ([#76](https://github.com/flex-development/vfile-reader/issues/76))
+- [[`82ab725`](https://github.com/flex-development/vfile-reader/commit/82ab725c70a83361dcd2f32a39a9cb5e4bbe689a)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.2.9 to 48.2.12 ([#77](https://github.com/flex-development/vfile-reader/issues/77))
+- [[`18d881e`](https://github.com/flex-development/vfile-reader/commit/18d881e970630422ba7766c24ff8141b5b5e97dd)] **deps-dev:** Bump lint-staged from 15.2.5 to 15.2.6 ([#72](https://github.com/flex-development/vfile-reader/issues/72))
+- [[`a59eebb`](https://github.com/flex-development/vfile-reader/commit/a59eebb1817cb5a3aa8868f3d9af2b8ca83cfef2)] **deps-dev:** Bump lint-staged from 15.2.6 to 15.2.7 ([#75](https://github.com/flex-development/vfile-reader/issues/75))
+- [[`1b30fc3`](https://github.com/flex-development/vfile-reader/commit/1b30fc33b872f1066b6c51f47c6cc33d0c093203)] **deps-dev:** Bump prettier from 3.3.1 to 3.3.2 ([#71](https://github.com/flex-development/vfile-reader/issues/71))
+- [[`f25a40c`](https://github.com/flex-development/vfile-reader/commit/f25a40cb0fae26ef4c45b325697f7514ce75869d)] **deps-dev:** Bump the typescript-eslint group with 2 updates ([#70](https://github.com/flex-development/vfile-reader/issues/70))
+- [[`1e1d904`](https://github.com/flex-development/vfile-reader/commit/1e1d904d8996332e80157a020633ed08cecc40a7)] **deps:** bump @flex-development/unist-util-types from 1.6.0 to 1.6.1
+- [[`ff8e5aa`](https://github.com/flex-development/vfile-reader/commit/ff8e5aaebd8eab2f414b45e605ca733cf786ba40)] **yarn:** bump yarn from 4.2.1 to 4.3.0
+
+### :robot: Continuous Integration
+
+- [[`24f9f4f`](https://github.com/flex-development/vfile-reader/commit/24f9f4f6095ffc6a21ce4690de92430c125fd3db)] **deps:** Bump actions/checkout from 4.1.6 to 4.1.7 ([#74](https://github.com/flex-development/vfile-reader/issues/74))
+- [[`cef0f6f`](https://github.com/flex-development/vfile-reader/commit/cef0f6ff63f9526d71ba03ec7046a6d9ad40fe6b)] **deps:** Bump codecov/codecov-action from 4.4.1 to 4.5.0 ([#73](https://github.com/flex-development/vfile-reader/issues/73))
+
+### :pencil: Documentation
+
+- [[`8409caf`](https://github.com/flex-development/vfile-reader/commit/8409cafd341f1296d4ecce18c2b83ba2d8a65ef2)] related
+
+### :sparkles: Features
+
+- [[`8467e3e`](https://github.com/flex-development/vfile-reader/commit/8467e3e34b36bbb7a9fb87527b4a482442c84bdc)] [`CodeReader`] `.check`, `#check`
+- [[`4567f01`](https://github.com/flex-development/vfile-reader/commit/4567f016b7a28f5ea6851b7a2bedd7284a6e31fe)] [`CodeReader`] `.serialize`
+- [[`c949bdc`](https://github.com/flex-development/vfile-reader/commit/c949bdc6f673f821eabbc00ccdec09a1cf718437)] `chars`, `codes`
+- [[`f205a94`](https://github.com/flex-development/vfile-reader/commit/f205a941bbee35d94f1259c4b761acf404169e96)] `Reader#sliceSerialize`
+
+### :bug: Fixes
+
+- [[`4599009`](https://github.com/flex-development/vfile-reader/commit/4599009a8908a9dbf741980893a87a1cbe92d470)] [`Reader`] eof code regression
+
+### :mechanical_arm: Refactors
+
+- [[`c9aecaa`](https://github.com/flex-development/vfile-reader/commit/c9aecaa43fd70163a84f223322c77723cdcd1a18)] [`CodeReader`] `#stringify` -> `#serialize`
+- [[`e740f3a`](https://github.com/flex-development/vfile-reader/commit/e740f3a00661ad4bf19d9b3ff3e3ac31c2d51cd6)] `Reader#slice`
+
 ## [2.0.0](https://github.com/flex-development/vfile-reader/compare/1.0.2...2.0.0) (2024-06-11)
 
 ### ⚠ BREAKING CHANGES
@@ -96,6 +141,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`a512390`](https://github.com/flex-development/vfile-reader/commit/a512390df6e0b65146ca8d3516622fa1e48a6c21)] initial commit
+
 
 
 
