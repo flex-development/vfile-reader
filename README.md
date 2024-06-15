@@ -39,11 +39,15 @@
   - [`CharacterReader(file[, start])`](#characterreaderfile-start)
     - [`CharacterReader#peekMatch(test)`](#characterreaderpeekmatchtest)
   - [`CodeReader(file[, start])`](#codereaderfile-start)
+    - [`CodeReader.check(test)`](#codereaderchecktest)
     - [`CodeReader.serialize(...codes)`](#codereaderserializecodes)
+    - [`CodeReader#check(test)`](#codereaderchecktest-1)
   - [`chars`](#chars)
   - [`codes`](#codes)
   - [`CharacterMatch`](#charactermatch)
   - [`Character`](#character)
+  - [`CodeCheckFactory`](#codecheckfactory)
+  - [`CodeCheck`](#codecheck)
   - [`Code`](#code)
   - [`Position`](#position)
   - [`RangeTuple`](#rangetuple)
@@ -332,6 +336,18 @@ Get the next match from the file without changing the position of the reader, wi
 
 Create a new character code reader.
 
+#### `CodeReader.check(test)`
+
+Create a code check from a character code or regular expression.
+
+##### `Parameters`
+
+- `test` (`Code | RegExp`) &mdash; test to create check from
+
+##### `Returns`
+
+([`CodeCheck`](#codecheck)) Code check.
+
 #### `CodeReader.serialize(...codes)`
 
 Convert the specified sequence of character codes to a string.
@@ -343,6 +359,10 @@ Convert the specified sequence of character codes to a string.
 ##### `Returns`
 
 (`string`) String created from character code sequence.
+
+#### `CodeReader#check(test)`
+
+Instance method equivalent of [`CodeReader.check(test)`](#codereaderchecktest).
 
 ### `chars`
 
@@ -367,6 +387,38 @@ Character in a source file, with `null` denoting end of file (TypeScript type).
 ```ts
 type Character = string | null
 ```
+
+### `CodeCheckFactory`
+
+Create a code check from a character code or regular expression (TypeScript type).
+
+```ts
+type CodeCheckFactory = (test: Code | RegExp) => CodeCheck
+```
+
+#### `Parameters`
+
+- `test` (`Code | RegExp`) &mdash; test to create check from
+
+#### `Returns`
+
+([`CodeCheck`](#codecheck)) Code check.
+
+### `CodeCheck`
+
+Check whether a character code, or sequence of codes, matches the bound test (TypeScript type).
+
+```ts
+type CodeCheck = (code: Code | Code[]) => boolean
+```
+
+#### `Parameters`
+
+- `code` (`Code | Code[]`) &mdash; code or code sequence to check
+
+#### `Returns`
+
+(`boolean`) `true` if `code` matches bound test.
 
 ### `Code`
 

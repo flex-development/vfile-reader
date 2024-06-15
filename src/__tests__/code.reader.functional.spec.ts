@@ -39,6 +39,26 @@ describe('functional:CodeReader', () => {
     })
   })
 
+  describe('#check', () => {
+    let spy: MockInstance<TestSubject['check']>
+
+    beforeEach(() => {
+      spy = vi.spyOn(TestSubject, 'check')
+    })
+
+    it('should call CodeReader.check', () => {
+      // Arrange
+      const test: RegExp = /\p{ID_Continue}/u
+
+      // Act
+      subject.check(test)(null)
+
+      // Expect
+      expect(spy).toHaveBeenCalledOnce()
+      expect(spy).toHaveBeenCalledWith(test)
+    })
+  })
+
   describe('#peek', () => {
     let spy: MockInstance<Reader['peek']>
 

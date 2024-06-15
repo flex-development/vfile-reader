@@ -869,6 +869,7 @@ const config = {
         'jest-formatting/padding-around-describe-blocks': 1,
         'jest-formatting/padding-around-expect-groups': 1,
         'jest-formatting/padding-around-test-blocks': 1,
+        'no-control-regex': 0,
         'no-empty-pattern': 0,
         'promise/prefer-await-to-callbacks': 0,
         'promise/valid-params': 0,

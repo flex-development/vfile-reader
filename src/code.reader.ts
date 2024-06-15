@@ -6,7 +6,8 @@
 import type { Point } from '@flex-development/vfile-location'
 import type { VFile, Value } from 'vfile'
 import Reader from './abstract.reader'
-import type { Code, Range, ReaderSlice, ReaderValues } from './types'
+import codes from './codes'
+import type { Code, CodeCheck, Range, ReaderSlice, ReaderValues } from './types'
 
 /**
  * Character code reader.
@@ -47,6 +48,40 @@ class CodeReader extends Reader<Code> {
   constructor(file: Value | VFile, start?: Point | null) {
     super(file, start)
     this.init([...this.source].map(char => char.codePointAt(0)!))
+  }
+
+  /**
+   * Create a code check from a character code or regular expression.
+   *
+   * @see {@linkcode CodeCheck}
+   * @see {@linkcode Code}
+   *
+   * @public
+   * @static
+   * @instance
+   *
+   * @param {Code | RegExp} test - Test to create check from
+   * @return {CodeCheck} Code check
+   */
+  public static check(test: Code | RegExp): CodeCheck {
+    return check
+
+    /**
+     * Check whether a character code, or sequence of codes, matches the bound
+     * test.
+     *
+     * @param {Code | Code[]} code - Code or code sequence to check
+     * @return {boolean} `true` if `code` matches bound test
+     */
+    function check(code: Code | Code[]): boolean {
+      return test instanceof RegExp
+        ? code === codes.eof
+          ? false
+          : Array.isArray(code)
+          ? test.test(CodeReader.serialize(...code))
+          : test.test(CodeReader.serialize(code))
+        : code === test
+    }
   }
 
   /**
@@ -95,6 +130,22 @@ class CodeReader extends Reader<Code> {
    */
   public override get previous(): Code {
     return super.previous
+  }
+
+  /**
+   * Create a code check from a character code or regular expression.
+   *
+   * @see {@linkcode CodeCheck}
+   * @see {@linkcode Code}
+   *
+   * @public
+   * @instance
+   *
+   * @param {Code | RegExp} test - Test to create check from
+   * @return {CodeCheck} Code check
+   */
+  public check(test: Code | RegExp): CodeCheck {
+    return CodeReader.check(test)
   }
 
   /**
