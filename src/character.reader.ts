@@ -143,6 +143,21 @@ class CharacterReader extends Reader<Character> {
   }
 
   /**
+   * Convert the specified sequence of characters to a string.
+   *
+   * @see {@linkcode Character}
+   *
+   * @public
+   * @instance
+   *
+   * @param {Character[]} chars - Character sequence
+   * @return {string} String created from character sequence
+   */
+  public serialize(...chars: Character[]): string {
+    return chars.join('')
+  }
+
+  /**
    * Get the characters spanning `range` without changing the position of the
    * reader.
    *

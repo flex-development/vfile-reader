@@ -257,6 +257,20 @@ abstract class Reader<
   }
 
   /**
+   * Convert the specified sequence of reader values to a string.
+   *
+   * @see {@linkcode ReaderSlice}
+   *
+   * @public
+   * @abstract
+   * @instance
+   *
+   * @param {ReaderSlice<T> | T[]} values - Reader value sequence
+   * @return {string} String created from reader value sequence
+   */
+  public abstract serialize(...values: ReaderSlice<T> | T[]): string
+
+  /**
    * Get the values spanning `range` without changing the position of the
    * reader.
    *
@@ -277,6 +291,21 @@ abstract class Reader<
     if (typeof x === 'object' && x) x = x.offset
 
     return <never>this.values.slice(h, typeof x === 'number' ? x++ : undefined)
+  }
+
+  /**
+   * Get the text spanning `range` without changing the position of the reader.
+   *
+   * @see {@linkcode Range}
+   *
+   * @public
+   * @instance
+   *
+   * @param {Range} range - Slice position
+   * @return {string} Serialized slice
+   */
+  public sliceSerialize(range: Range): string {
+    return this.serialize(...this.slice(range))
   }
 }
 

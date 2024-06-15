@@ -4,6 +4,8 @@
  */
 
 import type { ReaderValue, ReaderValues } from '#src/types'
+import type { MockInstance } from '#tests/interfaces'
+import type { Offset } from '@flex-development/unist-util-types'
 import type { Point } from '@flex-development/vfile-location'
 import { read } from 'to-vfile'
 import type { VFile, Value } from 'vfile'
@@ -41,6 +43,19 @@ describe('unit:Reader', () => {
       constructor(file: Value | VFile, start: Point | null = null) {
         super(file, start)
         this.init([...this.source])
+      }
+
+      /**
+       * Convert the specified sequence of reader values to a string.
+       *
+       * @public
+       * @instance
+       *
+       * @param {ReaderValue[]} values - Reader value sequence
+       * @return {string} String created from reader value sequence
+       */
+      public serialize(...values: ReaderValue[]): string {
+        return values.join('')
       }
     }
 
@@ -183,6 +198,30 @@ describe('unit:Reader', () => {
 
     it('should return reader value slice (tuple)', () => {
       expect(subject.slice([start.offset, end.offset])).to.eql(slice)
+    })
+  })
+
+  describe('#sliceSerialize', () => {
+    let range: [Offset, Offset]
+    let serialize: MockInstance<TestSubject['serialize']>
+    let slice: MockInstance<TestSubject['slice']>
+
+    beforeEach(() => {
+      serialize = vi.spyOn(subject, 'serialize')
+      slice = vi.spyOn(subject, 'slice')
+
+      subject.sliceSerialize(range = [112, 114])
+    })
+
+    it('should call #serialize', () => {
+      expect(serialize).toHaveBeenCalledOnce()
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      expect(serialize).toHaveBeenCalledWith(...slice.mock.results[0]!.value)
+    })
+
+    it('should call #slice', () => {
+      expect(slice).toHaveBeenCalledOnce()
+      expect(slice).toHaveBeenCalledWith(range)
     })
   })
 })

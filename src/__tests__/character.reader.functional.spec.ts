@@ -59,6 +59,23 @@ describe('functional:CharacterReader', () => {
     })
   })
 
+  describe('#serialize', () => {
+    let spy: MockInstance<Character[]['join']>
+
+    beforeEach(() => {
+      spy = vi.spyOn(Array.prototype, 'join')
+    })
+
+    it('should call Array.prototype.join', () => {
+      // Act
+      subject.serialize()
+
+      // Expect
+      expect(spy).toHaveBeenCalledOnce()
+      expect(spy).toHaveBeenCalledWith('')
+    })
+  })
+
   describe('#slice', () => {
     let spy: MockInstance<Reader['slice']>
 

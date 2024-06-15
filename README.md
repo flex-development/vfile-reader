@@ -32,13 +32,14 @@
     - [`Reader#previous`](#readerprevious)
     - [`Reader#read([k])`](#readerreadk)
     - [`Reader#reset()`](#readerreset)
+    - [`Reader#serialize(...values)`](#readerserializevalues)
     - [`Reader#slice(range)`](#readerslicerange)
+    - [`Reader#sliceSerialize(range)`](#readersliceserializerange)
     - [`Reader#start`](#readerstart)
   - [`CharacterReader(file[, start])`](#characterreaderfile-start)
     - [`CharacterReader#peekMatch(test)`](#characterreaderpeekmatchtest)
   - [`CodeReader(file[, start])`](#codereaderfile-start)
     - [`CodeReader.serialize(...codes)`](#codereaderserializecodes)
-    - [`CodeReader#serialize(...codes)`](#codereaderserializecodes-1)
   - [`chars`](#chars)
   - [`codes`](#codes)
   - [`CharacterMatch`](#charactermatch)
@@ -267,6 +268,18 @@ Reset the position of the reader.
 
 (`this`) The repositioned reader.
 
+#### `Reader#serialize(...values)`
+
+Convert the specified sequence of reader values to a string.
+
+##### `Parameters`
+
+- `...values` (`ReaderSlice<T> | T[]`) &mdash; reader value sequence
+
+##### `Returns`
+
+(`string`) String created from reader value sequence.
+
 #### `Reader#slice(range)`
 
 Get the values spanning `range` without changing the position of the reader.
@@ -278,6 +291,18 @@ Get the values spanning `range` without changing the position of the reader.
 ##### `Returns`
 
 ([`ReaderSlice<T>`](#readerslicet)) Reader value slice.
+
+#### `Reader#sliceSerialize(range)`
+
+Get the text spanning `range` without changing the position of the reader.
+
+##### `Parameters`
+
+- `range` ([`Range`](#range)) &mdash; slice position
+
+##### `Returns`
+
+(`string`) Serialized slice.
 
 #### `Reader#start`
 
@@ -318,10 +343,6 @@ Convert the specified sequence of character codes to a string.
 ##### `Returns`
 
 (`string`) String created from character code sequence.
-
-#### `CodeReader#serialize(...codes)`
-
-Instance method equivalent of [`CodeReader.serialize(...codes)`](#codereaderserializecodes).
 
 ### `chars`
 
