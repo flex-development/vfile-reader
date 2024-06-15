@@ -6,7 +6,7 @@
 import type { Point } from '@flex-development/vfile-location'
 import type { VFile, Value } from 'vfile'
 import Reader from './abstract.reader'
-import type { Code } from './types'
+import type { Code, Range, ReaderSlice, ReaderValues } from './types'
 
 /**
  * Character code reader.
@@ -22,13 +22,14 @@ class CodeReader extends Reader<Code> {
    * Character codes in file.
    *
    * @see {@linkcode Code}
+   * @see {@linkcode ReaderValues}
    *
    * @protected
    * @readonly
    * @instance
-   * @member {ReadonlyArray<NonNullable<Code>>} values
+   * @member {ReaderValues<Code>} values
    */
-  protected readonly values!: readonly NonNullable<Code>[]
+  protected readonly values!: ReaderValues<Code>
 
   /**
    * Create a new character code reader.
@@ -45,13 +46,7 @@ class CodeReader extends Reader<Code> {
    */
   constructor(file: Value | VFile, start?: Point | null) {
     super(file, start)
-
-    Object.defineProperties(this, {
-      values: {
-        enumerable: false,
-        value: [...this.source].map(char => char.codePointAt(0)!)
-      }
-    })
+    this.init([...this.source].map(char => char.codePointAt(0)!))
   }
 
   /**
@@ -156,20 +151,22 @@ class CodeReader extends Reader<Code> {
   }
 
   /**
-   * Get a slice of the most recent character codes, with the last code being
-   * the current character code, without changing the position of the reader.
+   * Get the character codes spanning `range` without changing the position of
+   * the reader.
    *
    * @see {@linkcode Code}
+   * @see {@linkcode Range}
+   * @see {@linkcode ReaderSlice}
    *
    * @public
    * @override
    * @instance
    *
-   * @param {number} m - Maximum number of character codes to include in slice
-   * @return {NonNullable<Code>[]} Code points slice
+   * @param {Range} range - Slice position
+   * @return {ReaderSlice<Code>} Character code slice
    */
-  public override slice(m: number): NonNullable<Code>[] {
-    return super.slice(m)
+  public override slice(range: Range): ReaderSlice<Code> {
+    return super.slice(range)
   }
 }
 

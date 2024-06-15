@@ -3,7 +3,7 @@
  * @module vfile-reader/tests/functional/CharacterReader
  */
 
-import type { Character } from '#src/types'
+import type { Character, RangeTuple } from '#src/types'
 import type { MockInstance } from '#tests/interfaces'
 import { read } from 'to-vfile'
 import type { VFile } from 'vfile'
@@ -68,14 +68,14 @@ describe('functional:CharacterReader', () => {
 
     it('should call Reader.prototype.slice', () => {
       // Arrange
-      const m: number = 1
+      const range: RangeTuple = [3]
 
       // Act
-      subject.slice(m)
+      subject.slice(range)
 
       // Expect
       expect(spy).toHaveBeenCalledOnce()
-      expect(spy).toHaveBeenCalledWith(m)
+      expect(spy).toHaveBeenCalledWith(range)
     })
   })
 

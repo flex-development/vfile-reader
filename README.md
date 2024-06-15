@@ -32,7 +32,7 @@
     - [`Reader#previous`](#readerprevious)
     - [`Reader#read([k])`](#readerreadk)
     - [`Reader#reset()`](#readerreset)
-    - [`Reader#slice(m)`](#readerslicem)
+    - [`Reader#slice(range)`](#readerslicerange)
     - [`Reader#start`](#readerstart)
   - [`CharacterReader(file[, start])`](#characterreaderfile-start)
     - [`CharacterReader#peekMatch(test)`](#characterreaderpeekmatchtest)
@@ -44,9 +44,14 @@
   - [`CharacterMatch`](#charactermatch)
   - [`Character`](#character)
   - [`Code`](#code)
+  - [`Position`](#position)
+  - [`RangeTuple`](#rangetuple)
+  - [`Range`](#range)
   - [`ReaderIterator<T>`](#readeriteratort)
   - [`ReaderIteratorResult`](#readeriteratorresult)
+  - [`ReaderSlice<T>`](#readerslicet)
   - [`ReaderValue`](#readervalue)
+  - [`ReaderValues<T>`](#readervaluest)
 - [Types](#types)
 - [Related](#related)
 - [Contribute](#contribute)
@@ -143,6 +148,7 @@ while (!chars.eof) {
 This package exports the following identifiers:
 
 - [`CharacterReader`](#characterreaderfile-start)
+- [`CodeReader`](#codereaderfile-start)
 - [`Reader`](#readerfile-start)
 - [`chars`](#chars)
 - [`codes`](#codes)
@@ -261,18 +267,17 @@ Reset the position of the reader.
 
 (`this`) The repositioned reader.
 
-#### `Reader#slice(m)`
+#### `Reader#slice(range)`
 
-Get a slice of the most recent reader values, with the last value being the current reader value, without changing the
-position of the reader.
+Get the values spanning `range` without changing the position of the reader.
 
 ##### `Parameters`
 
-- `m` (`number`) &mdash; maximum number of reader values to include in slice
+- `range` ([`Range`](#range)) &mdash; slice position
 
 ##### `Returns`
 
-(`NonNullable<T>[]`) Reader values slice.
+([`ReaderSlice<T>`](#readerslicet)) Reader value slice.
 
 #### `Reader#start`
 
@@ -350,6 +355,45 @@ Character code ([code point][codepointat]) in a source file, with `null` denotin
 type Code = number | null
 ```
 
+### `Position`
+
+Range between two points in a source file (TypeScript interface).
+
+> See also: [`Point`][point]
+
+```ts
+interface Position {
+  end: Point
+  start: Point
+}
+```
+
+The `start` field represents the place of the first reader value in the range. The `end` field represents the place of
+the last reader value in the range.
+
+### `RangeTuple`
+
+List, where the first value is the location of the first reader value in a slice, and the last is the location of the
+last reader value, with `null` or `undefined` denoting all values after the first (inclusive) are included in the slice
+(TypeScript type).
+
+> See also: [`Offset`][offset], [`Point`][point]
+
+```ts
+type RangeTuple = [
+  start: Offset | Point,
+  end?: Offset | Point | null | undefined
+]
+```
+
+### `Range`
+
+Union of range types (TypeScript type).
+
+```ts
+type Range = Position | RangeTuple
+```
+
 ### `ReaderIterator<T>`
 
 Input reader iterator API (TypeScript interface).
@@ -371,12 +415,34 @@ type ReaderIteratorResult<
 > = IteratorReturnResult<T> | IteratorYieldResult<T>
 ```
 
+### `ReaderSlice<T>`
+
+Array representing a slice of reader output values (TypeScript type).
+
+```ts
+type ReaderSlice<T extends ReaderValue = ReaderValue> =
+  | [...values: NonNullable<T>[], value: NonNullable<T>]
+  | [...values: ReaderValues<T>]
+  | []
+```
+
 ### `ReaderValue`
 
 Character or character code in a source file, with `null` denoting the end of file (TypeScript type).
 
 ```ts
 type ReaderValue = Character | Code
+```
+
+### `ReaderValues<T>`
+
+Reader output values (TypeScript type).
+
+```ts
+type ReaderValues<T extends ReaderValue = ReaderValue> = readonly [
+  ...values: NonNullable<T>[],
+  eof: null
+]
 ```
 
 ## Types

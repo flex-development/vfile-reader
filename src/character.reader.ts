@@ -6,7 +6,13 @@
 import type { Point } from '@flex-development/vfile-location'
 import type { VFile, Value } from 'vfile'
 import Reader from './abstract.reader'
-import type { Character, CharacterMatch } from './types'
+import type {
+  Character,
+  CharacterMatch,
+  Range,
+  ReaderSlice,
+  ReaderValues
+} from './types'
 
 /**
  * Character reader.
@@ -22,13 +28,14 @@ class CharacterReader extends Reader<Character> {
    * Characters in file.
    *
    * @see {@linkcode Character}
+   * @see {@linkcode ReaderValues}
    *
    * @protected
    * @readonly
    * @instance
-   * @member {ReadonlyArray<NonNullable<Character>>} values
+   * @member {ReaderValues<Character>} values
    */
-  protected readonly values!: readonly NonNullable<Character>[]
+  protected readonly values!: ReaderValues<Character>
 
   /**
    * Create a new character reader.
@@ -45,10 +52,7 @@ class CharacterReader extends Reader<Character> {
    */
   constructor(file: Value | VFile, start?: Point | null) {
     super(file, start)
-
-    Object.defineProperties(this, {
-      values: { enumerable: false, value: [...this.source] }
-    })
+    this.init([...this.source])
   }
 
   /**
@@ -139,20 +143,22 @@ class CharacterReader extends Reader<Character> {
   }
 
   /**
-   * Get a slice of the most recent characters, with the last value being the
-   * current character, without changing the position of the reader.
+   * Get the characters spanning `range` without changing the position of the
+   * reader.
    *
    * @see {@linkcode Character}
+   * @see {@linkcode Range}
+   * @see {@linkcode ReaderSlice}
    *
    * @public
    * @override
    * @instance
    *
-   * @param {number} m - Maximum number of characters to include in slice
-   * @return {NonNullable<Character>[]} Characters slice
+   * @param {Range} range - Slice position
+   * @return {ReaderSlice<Character>} Character slice
    */
-  public override slice(m: number): NonNullable<Character>[] {
-    return super.slice(m)
+  public override slice(range: Range): ReaderSlice<Character> {
+    return super.slice(range)
   }
 }
 

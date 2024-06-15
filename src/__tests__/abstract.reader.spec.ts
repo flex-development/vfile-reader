@@ -3,7 +3,7 @@
  * @module vfile-reader/tests/unit/Reader
  */
 
-import type { ReaderValue } from '#src/types'
+import type { ReaderValue, ReaderValues } from '#src/types'
 import type { Point } from '@flex-development/vfile-location'
 import { read } from 'to-vfile'
 import type { VFile, Value } from 'vfile'
@@ -23,14 +23,14 @@ describe('unit:Reader', () => {
   beforeAll(async () => {
     Subject = class Subject extends TestSubject {
       /**
-       * Reader values.
+       * Reader output values.
        *
        * @protected
        * @readonly
        * @instance
-       * @member {ReadonlyArray<NonNullable<ReaderValue>>} values
+       * @member {ReaderValues} values
        */
-      protected readonly values!: readonly NonNullable<ReaderValue>[]
+      protected readonly values!: ReaderValues
 
       /**
        * Create a new test input reader.
@@ -40,10 +40,7 @@ describe('unit:Reader', () => {
        */
       constructor(file: Value | VFile, start: Point | null = null) {
         super(file, start)
-
-        Object.defineProperties(this, {
-          values: { enumerable: false, value: [...this.source] }
-        })
+        this.init([...this.source])
       }
     }
 
@@ -147,10 +144,6 @@ describe('unit:Reader', () => {
   })
 
   describe('#read', () => {
-    beforeEach(() => {
-      // subject.read(-1)
-    })
-
     it('should return next k-th reader value', () => {
       expect(subject.read()).to.equal(source[0])
       expect(subject.read()).to.equal(source[1])
@@ -173,26 +166,23 @@ describe('unit:Reader', () => {
   })
 
   describe('#slice', () => {
-    it('should return empty array if m <= 0', () => {
-      ;[-3, 0].forEach(m => {
-        expect(subject.slice(m)).to.be.an('array').that.is.empty
-      })
+    let end: Point
+    let slice: ReaderValue[]
+    let start: Point
+
+    beforeAll(() => {
+      end = { column: 4, line: 1, offset: 3 }
+      start = { column: 1, line: 1, offset: 0 }
+
+      slice = [source[0]!, source[1]!, source[2]!]
     })
 
-    it('should return non-empty array if m > 0', () => {
-      // Arrange
-      const m: number = 3
+    it('should return reader value slice (position)', () => {
+      expect(subject.slice({ end, start })).to.eql(slice)
+    })
 
-      // Act
-      subject.read(m)
-      const result = subject.slice(m)
-
-      // Expect
-      expect(result).to.be.of.length(m).and.have.ordered.members([
-        source[0],
-        source[1],
-        source[2]
-      ])
+    it('should return reader value slice (tuple)', () => {
+      expect(subject.slice([start.offset, end.offset])).to.eql(slice)
     })
   })
 })

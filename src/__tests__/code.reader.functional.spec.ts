@@ -3,7 +3,7 @@
  * @module vfile-reader/tests/functional/CodeReader
  */
 
-import type { Code } from '#src/types'
+import type { Code, RangeTuple } from '#src/types'
 import type { MockInstance } from '#tests/interfaces'
 import { read } from 'to-vfile'
 import type { VFile } from 'vfile'
@@ -108,14 +108,14 @@ describe('functional:CodeReader', () => {
 
     it('should call Reader.prototype.slice', () => {
       // Arrange
-      const m: number = 1
+      const range: RangeTuple = [{ column: 2, line: 1, offset: 3 }]
 
       // Act
-      subject.slice(m)
+      subject.slice(range)
 
       // Expect
       expect(spy).toHaveBeenCalledOnce()
-      expect(spy).toHaveBeenCalledWith(m)
+      expect(spy).toHaveBeenCalledWith(range)
     })
   })
 

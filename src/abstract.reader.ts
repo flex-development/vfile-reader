@@ -7,7 +7,13 @@ import type { Offset } from '@flex-development/unist-util-types'
 import { Location, type Point } from '@flex-development/vfile-location'
 import type { VFile, Value } from 'vfile'
 import type { ReaderIterator } from './interfaces'
-import type { ReaderIteratorResult, ReaderValue } from './types'
+import type {
+  Range,
+  ReaderIteratorResult,
+  ReaderSlice,
+  ReaderValue,
+  ReaderValues
+} from './types'
 
 /**
  * Abstract input reader.
@@ -50,13 +56,15 @@ abstract class Reader<
   /**
    * Reader output values.
    *
+   * @see {@linkcode ReaderValues}
+   *
    * @protected
    * @abstract
    * @readonly
    * @instance
-   * @member {ReadonlyArray<NonNullable<T>>} values
+   * @member {ReaderValues<T>} values
    */
-  protected abstract readonly values: readonly NonNullable<T>[]
+  protected abstract readonly values: ReaderValues<T>
 
   /**
    * Create a new input reader.
@@ -89,7 +97,7 @@ abstract class Reader<
    * @return {boolean} `true` if at end of file, `false` otherwise
    */
   public get eof(): boolean {
-    return this.index >= this.values.length
+    return this.index >= this.values.length - 1
   }
 
   /**
@@ -158,6 +166,21 @@ abstract class Reader<
    */
   public includes(value: string): boolean {
     return this.source.includes(value, this.index)
+  }
+
+  /**
+   * Initialize the reader.
+   *
+   * @protected
+   * @instance
+   *
+   * @param {NonNullable<T>[]} values - Reader output values
+   * @return {this} `this` reader
+   */
+  protected init(values: NonNullable<T>[]): this {
+    return Object.defineProperties(this, {
+      values: { enumerable: false, value: Object.freeze([...values, null]) }
+    })
   }
 
   /**
@@ -234,17 +257,26 @@ abstract class Reader<
   }
 
   /**
-   * Get a slice of the most recent reader values, with the last value being the
-   * current reader value, without changing the position of the reader.
+   * Get the values spanning `range` without changing the position of the
+   * reader.
+   *
+   * @see {@linkcode Range}
+   * @see {@linkcode ReaderSlice}
    *
    * @public
    * @instance
    *
-   * @param {number} m - Maximum number of reader values to include in slice
-   * @return {NonNullable<T>[]} Reader values slice
+   * @param {Range} range - Slice position
+   * @return {ReaderSlice<T>} Reader value slice
    */
-  public slice(m: number): NonNullable<T>[] {
-    return m <= 0 ? [] : this.values.slice(this.index - --m, this.index + 1)
+  public slice(range: Range): ReaderSlice<T> {
+    if (!Array.isArray(range)) range = [range.start, range.end]
+
+    let [h, x] = range
+    if (typeof h === 'object') h = h.offset
+    if (typeof x === 'object' && x) x = x.offset
+
+    return <never>this.values.slice(h, typeof x === 'number' ? x++ : undefined)
   }
 }
 
