@@ -61,8 +61,7 @@
     "**/.*.json",
     "**/.*.mjs",
     "**/.*.mts",
-    "**/.*.ts",
-    ".eslintrc*cjs"
+    "**/.*.ts"
   ],
   "mdx": {
     "plugins": [
