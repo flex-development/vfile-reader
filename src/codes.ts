@@ -10,6 +10,7 @@ import type { Code } from '@flex-development/vfile-reader'
  *
  * @see {@linkcode Code}
  * @see https://symbl.cc/en/unicode/blocks/basic-latin
+ * @see https://symbl.cc/en/unicode/blocks/latin-1-supplement
  * @see https://util.unicode.org/UnicodeJsps/character.jsp
  * @see https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp
  *
@@ -145,6 +146,7 @@ const codes = {
   rightBrace: 125, // }
   tilde: 126, // ~
   del: 127,
+  nbsp: 160, // \u00A0
   zwnj: 8204, // \u200C
   zwj: 8205, // \u200D
   ls: 8232, // \u2028

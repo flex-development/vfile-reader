@@ -9,6 +9,7 @@ import type { Character } from '@flex-development/vfile-reader'
  * Character dictionary.
  *
  * @see https://symbl.cc/en/unicode/blocks/basic-latin
+ * @see https://symbl.cc/en/unicode/blocks/latin-1-supplement
  *
  * @enum {Character}
  */
@@ -96,6 +97,7 @@ const chars = {
   lt: '<',
   minus: '-',
   nak: '\u0015',
+  nbsp: '\u00A0',
   nul: '\0',
   percent: '%',
   plus: '+',
