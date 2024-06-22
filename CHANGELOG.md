@@ -1,3 +1,28 @@
+## [3.1.0](https://github.com/flex-development/vfile-reader/compare/3.0.0...3.1.0) (2024-06-22)
+
+### :package: Build
+
+- [[`f540d05`](https://github.com/flex-development/vfile-reader/commit/f540d05e084645cb200b7d475bde9d7af7888e90)] **deps-dev:** Bump @stylistic/eslint-plugin from 2.2.0 to 2.2.1 ([#80](https://github.com/flex-development/vfile-reader/issues/80))
+- [[`477bf0e`](https://github.com/flex-development/vfile-reader/commit/477bf0e379192e13647d8e50b2f69e85be8072a4)] **deps-dev:** Bump @stylistic/eslint-plugin from 2.2.1 to 2.2.2 ([#83](https://github.com/flex-development/vfile-reader/issues/83))
+- [[`9b2d538`](https://github.com/flex-development/vfile-reader/commit/9b2d538b01aedba2a78c898c40472e2f97e8bcbe)] **deps-dev:** Bump cspell from 8.8.4 to 8.9.0 ([#84](https://github.com/flex-development/vfile-reader/issues/84))
+- [[`64327ad`](https://github.com/flex-development/vfile-reader/commit/64327ad5fb2b4073e530b94885f845637014f576)] **deps-dev:** Bump cspell from 8.9.0 to 8.9.1 ([#85](https://github.com/flex-development/vfile-reader/issues/85))
+- [[`d1e2ae2`](https://github.com/flex-development/vfile-reader/commit/d1e2ae2d24ed6f0d3b4869272666a60c54e9a719)] **deps-dev:** Bump dprint from 0.46.2 to 0.46.3 ([#82](https://github.com/flex-development/vfile-reader/issues/82))
+- [[`a273fb9`](https://github.com/flex-development/vfile-reader/commit/a273fb92f9003e14e7ab64ca7ecc964d28d17893)] **deps-dev:** Bump globals from 15.4.0 to 15.6.0 ([#81](https://github.com/flex-development/vfile-reader/issues/81))
+- [[`82bd047`](https://github.com/flex-development/vfile-reader/commit/82bd0478841df33bb1266dc5e018d8a5659e1fdd)] **deps-dev:** bump typescript from 5.5.0-beta to 5.5.2
+
+### :sparkles: Features
+
+- [[`1a8faa0`](https://github.com/flex-development/vfile-reader/commit/1a8faa051d799002e93705364b74ce725307cd3d)] [`Reader`] nilable file support
+- [[`c4f6fc4`](https://github.com/flex-development/vfile-reader/commit/c4f6fc449d80cfc1dce8da164c1a161c6419c9c3)] `chars.nbsp`, `codes.nbsp`
+
+### :house_with_garden: Housekeeping
+
+- [[`1a042d0`](https://github.com/flex-development/vfile-reader/commit/1a042d08f9fb39bc1d0063950a48d0465372012a)] eslint v9 migration
+
+### :mechanical_arm: Refactors
+
+- [[`343728b`](https://github.com/flex-development/vfile-reader/commit/343728bcf755c3efc315d1cf7d2b2fa1f706a72c)] [`chars.bs`] use escape sequence
+
 ## [3.0.0](https://github.com/flex-development/vfile-reader/compare/2.0.0...3.0.0) (2024-06-14)
 
 ### ⚠ BREAKING CHANGES
@@ -141,6 +166,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`a512390`](https://github.com/flex-development/vfile-reader/commit/a512390df6e0b65146ca8d3516622fa1e48a6c21)] initial commit
+
 
 
 
