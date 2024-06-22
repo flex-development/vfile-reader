@@ -24,7 +24,7 @@ const chars = {
   bar: '|',
   bel: '\u0007',
   bom: '\uFEFF',
-  bs: '\u0008',
+  bs: '\b',
   can: '\u0018',
   caret: '^',
   colon: ':',
