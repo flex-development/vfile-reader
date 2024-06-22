@@ -76,11 +76,11 @@ abstract class Reader<
    * @see {@linkcode VFile}
    * @see {@linkcode Value}
    *
-   * @param {Value | VFile} file - File to read
+   * @param {(Value | VFile | null)?} file - File to read
    * @param {(Point | null)?} [start] - Point before first reader value
    */
-  constructor(file: Value | VFile, start?: Point | null) {
-    super(file, start)
+  constructor(file?: Value | VFile | null, start?: Point | null) {
+    super(file ??= '', start)
 
     this.#position = null
     this.source = String(file)

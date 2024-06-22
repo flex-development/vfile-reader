@@ -172,7 +172,7 @@ relative to the given point.
 
 **Note**: This is an abstract class and must be extended.
 
-- `file` ([`Value`][vfile-value] | [`VFile`][vfile-api]) &mdash; file to read
+- `file` ([`Value`][vfile-value] | [`VFile`][vfile-api] | `null` | `undefined`) &mdash; file to read
 - `start` ([`Point`][point] | `null` | `undefined`) &mdash; point before first reader value
 
 #### <small>Type Parameters</small>
