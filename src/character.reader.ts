@@ -47,10 +47,10 @@ class CharacterReader extends Reader<Character> {
    * @see {@linkcode VFile}
    * @see {@linkcode Value}
    *
-   * @param {Value | VFile} file - File to read
+   * @param {(Value | VFile | null)?} file - File to read
    * @param {(Point | null)?} [start] - Point before first character in `file`
    */
-  constructor(file: Value | VFile, start?: Point | null) {
+  constructor(file?: Value | VFile | null, start?: Point | null) {
     super(file, start)
     this.init([...this.source])
   }
