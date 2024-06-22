@@ -1,3 +1,9 @@
+## [3.1.1](https://github.com/flex-development/vfile-reader/compare/3.1.0...3.1.1) (2024-06-22)
+
+### :bug: Fixes
+
+- [[`2ba64f7`](https://github.com/flex-development/vfile-reader/commit/2ba64f799afa924fa30ac3bc32e5214c24409a33)] **ts:** nilable file support
+
 ## [3.1.0](https://github.com/flex-development/vfile-reader/compare/3.0.0...3.1.0) (2024-06-22)
 
 ### :package: Build
@@ -166,6 +172,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`a512390`](https://github.com/flex-development/vfile-reader/commit/a512390df6e0b65146ca8d3516622fa1e48a6c21)] initial commit
+
 
 
 
