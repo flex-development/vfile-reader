@@ -1407,13 +1407,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.5.0":
-  version: 9.5.0
-  resolution: "@eslint/js@npm:9.5.0"
-  checksum: 10/206364e3a074eaaeccc2b9e1e3f129539106a81ec634f32c51bc1699e0c4a47ab3e6480a6484a198bca6406888ba8f2917c35a87296680905d146075b5ed2738
-  languageName: node
-  linkType: hard
-
 "@eslint/js@npm:9.6.0":
   version: 9.6.0
   resolution: "@eslint/js@npm:9.6.0"
@@ -1881,7 +1874,7 @@ __metadata:
     "@arethetypeswrong/cli": "npm:0.15.3"
     "@commitlint/cli": "npm:19.3.0"
     "@commitlint/types": "npm:19.0.3"
-    "@eslint/js": "npm:9.5.0"
+    "@eslint/js": "npm:9.6.0"
     "@faker-js/faker": "npm:9.0.0-alpha.1"
     "@flex-development/commitlint-config": "npm:1.0.1"
     "@flex-development/decorator-regex": "npm:2.0.0"
