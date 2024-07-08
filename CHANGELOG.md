@@ -1,3 +1,52 @@
+## [3.1.2](https://github.com/flex-development/vfile-reader/compare/3.1.1...3.1.2) (2024-07-08)
+
+### :package: Build
+
+- [[`df4d88b`](https://github.com/flex-development/vfile-reader/commit/df4d88b6cd36249c94a9b6ed5fd4a473b62291e6)] **deps-dev:** Bump @arethetypeswrong/cli from 0.15.3 to 0.16.0 ([#114](https://github.com/flex-development/vfile-reader/issues/114))
+- [[`70b3d06`](https://github.com/flex-development/vfile-reader/commit/70b3d06e5051846ab548c396c386fb5371f28875)] **deps-dev:** Bump @eslint/js from 9.5.0 to 9.6.0 ([#109](https://github.com/flex-development/vfile-reader/issues/109))
+- [[`04a0200`](https://github.com/flex-development/vfile-reader/commit/04a0200c2792017c3396f2d3741c2d636e8b6e95)] **deps-dev:** Bump @faker-js/faker from 9.0.0-alpha.0 to 9.0.0-alpha.1 ([#91](https://github.com/flex-development/vfile-reader/issues/91))
+- [[`31addc2`](https://github.com/flex-development/vfile-reader/commit/31addc240b34415cb6a771dac5fce8e71f7fa6b8)] **deps-dev:** Bump @stylistic/eslint-plugin from 2.2.2 to 2.3.0 ([#99](https://github.com/flex-development/vfile-reader/issues/99))
+- [[`fc70ddf`](https://github.com/flex-development/vfile-reader/commit/fc70ddfe327a90654d40edeadcd594ec7cf12622)] **deps-dev:** Bump cspell from 8.10.0 to 8.10.1 ([#117](https://github.com/flex-development/vfile-reader/issues/117))
+- [[`c8fa2b5`](https://github.com/flex-development/vfile-reader/commit/c8fa2b5d1a1fe1c1d7efd44a3f332d1d84e5d3d2)] **deps-dev:** Bump cspell from 8.10.1 to 8.10.4 ([#122](https://github.com/flex-development/vfile-reader/issues/122))
+- [[`342d4cd`](https://github.com/flex-development/vfile-reader/commit/342d4cd3c24f3734f3b4ede1a79ef1df20d04d81)] **deps-dev:** Bump cspell from 8.9.1 to 8.10.0 ([#115](https://github.com/flex-development/vfile-reader/issues/115))
+- [[`1d29f8b`](https://github.com/flex-development/vfile-reader/commit/1d29f8b97b450cc90b608749cc19310c69c2013f)] **deps-dev:** Bump dprint from 0.46.3 to 0.47.0 ([#107](https://github.com/flex-development/vfile-reader/issues/107))
+- [[`c757ac9`](https://github.com/flex-development/vfile-reader/commit/c757ac9dabd929274754332a077206d0c1073232)] **deps-dev:** Bump dprint from 0.47.0 to 0.47.1 ([#125](https://github.com/flex-development/vfile-reader/issues/125))
+- [[`d33ee55`](https://github.com/flex-development/vfile-reader/commit/d33ee55044e7e85f3e5b58adda520da4bc25ad75)] **deps-dev:** Bump esbuild from 0.21.5 to 0.23.0 ([#112](https://github.com/flex-development/vfile-reader/issues/112))
+- [[`a49e397`](https://github.com/flex-development/vfile-reader/commit/a49e39741f905de4787ccade7867efb6c0d6193a)] **deps-dev:** Bump eslint from 9.5.0 to 9.6.0 in the eslint group ([#102](https://github.com/flex-development/vfile-reader/issues/102))
+- [[`de0bc83`](https://github.com/flex-development/vfile-reader/commit/de0bc839e8a06d6ee7812d25b25254a712fd93ad)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.2.12 to 48.3.0 ([#92](https://github.com/flex-development/vfile-reader/issues/92))
+- [[`f04de22`](https://github.com/flex-development/vfile-reader/commit/f04de224b1cc49ee5891a675057498b6ab30c84b)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.3.0 to 48.4.0 ([#94](https://github.com/flex-development/vfile-reader/issues/94))
+- [[`6d29a41`](https://github.com/flex-development/vfile-reader/commit/6d29a41e4bf4cb8eae685fca1ecc86e4fe732675)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.4.0 to 48.5.0 ([#98](https://github.com/flex-development/vfile-reader/issues/98))
+- [[`b9e16b5`](https://github.com/flex-development/vfile-reader/commit/b9e16b5b84d7f4b2c319444c577f8fc050f786c8)] **deps-dev:** Bump eslint-plugin-jsdoc from 48.5.0 to 48.5.2 ([#118](https://github.com/flex-development/vfile-reader/issues/118))
+- [[`c24892a`](https://github.com/flex-development/vfile-reader/commit/c24892a62c186b1811c5a4c109c561c3a0180153)] **deps-dev:** Bump eslint-plugin-promise from 6.2.0 to 6.4.0 ([#105](https://github.com/flex-development/vfile-reader/issues/105))
+- [[`a7a3635`](https://github.com/flex-development/vfile-reader/commit/a7a363549c7e464af392af11bc9682cdc61c62a7)] **deps-dev:** Bump globals from 15.6.0 to 15.7.0 ([#104](https://github.com/flex-development/vfile-reader/issues/104))
+- [[`bde0438`](https://github.com/flex-development/vfile-reader/commit/bde04385ca2a8cebdb0173e8f519fd422baaab87)] **deps-dev:** Bump globals from 15.7.0 to 15.8.0 ([#116](https://github.com/flex-development/vfile-reader/issues/116))
+- [[`ced93e1`](https://github.com/flex-development/vfile-reader/commit/ced93e1713f0cdecae05f40f4c3829260151322c)] **deps-dev:** Bump the typescript-eslint group across 1 directory with 2 updates ([#108](https://github.com/flex-development/vfile-reader/issues/108))
+- [[`b2cc414`](https://github.com/flex-development/vfile-reader/commit/b2cc414c68eb3d417a93336a0d268a9e6da6139a)] **deps-dev:** Bump the typescript-eslint group with 2 updates ([#100](https://github.com/flex-development/vfile-reader/issues/100))
+- [[`9b5bb68`](https://github.com/flex-development/vfile-reader/commit/9b5bb6883d07b43f253b31d6c829076d59a4dcdd)] **deps-dev:** Bump the typescript-eslint group with 2 updates ([#120](https://github.com/flex-development/vfile-reader/issues/120))
+- [[`c8ae94b`](https://github.com/flex-development/vfile-reader/commit/c8ae94b1498f7ddce9df28b3a06f5e0e34443cf6)] **deps-dev:** Bump the typescript-eslint group with 2 updates ([#93](https://github.com/flex-development/vfile-reader/issues/93))
+- [[`44173a3`](https://github.com/flex-development/vfile-reader/commit/44173a3ec3ff3b6c6f4207caae4424186eef2f3a)] **deps-dev:** bump the vitest group from 1.6.0 to 2.0.1
+- [[`f2d7bc9`](https://github.com/flex-development/vfile-reader/commit/f2d7bc9ada5b78c18f2e978d7698d68a648cbf36)] **deps-dev:** bump typescript from 5.5.2 to 5.5.3
+- [[`17ad4f8`](https://github.com/flex-development/vfile-reader/commit/17ad4f83302d2c26e1e38d111396aefc8b024af6)] **deps-dev:** Bump typescript-eslint from 8.0.0-alpha.30 to 8.0.0-alpha.33 ([#95](https://github.com/flex-development/vfile-reader/issues/95))
+- [[`195f0f4`](https://github.com/flex-development/vfile-reader/commit/195f0f48bab8ca28125881db98c6de092f9a2439)] **deps-dev:** Bump typescript-eslint from 8.0.0-alpha.33 to 8.0.0-alpha.34 ([#101](https://github.com/flex-development/vfile-reader/issues/101))
+- [[`de4d2b7`](https://github.com/flex-development/vfile-reader/commit/de4d2b72203a7808fae86a34b90ac06da788effd)] **deps-dev:** Bump typescript-eslint from 8.0.0-alpha.34 to 8.0.0-alpha.38 ([#106](https://github.com/flex-development/vfile-reader/issues/106))
+- [[`925d7a5`](https://github.com/flex-development/vfile-reader/commit/925d7a580e8a629343a1ef0321e38103fd332779)] **deps-dev:** Bump typescript-eslint from 8.0.0-alpha.38 to 8.0.0-alpha.39 ([#111](https://github.com/flex-development/vfile-reader/issues/111))
+- [[`39dc20f`](https://github.com/flex-development/vfile-reader/commit/39dc20f8c72502123d3985e25506f54295b13ebd)] **deps-dev:** Bump typescript-eslint from 8.0.0-alpha.39 to 8.0.0-alpha.41 ([#123](https://github.com/flex-development/vfile-reader/issues/123))
+- [[`b4c7eea`](https://github.com/flex-development/vfile-reader/commit/b4c7eea357c358aa746d1c9282a01c480d5c7f8e)] **deps:** bump @flex-development/vfile-location from 1.0.1 to 1.0.2
+
+### :robot: Continuous Integration
+
+- [[`ae07305`](https://github.com/flex-development/vfile-reader/commit/ae07305bde2469277688623600ed6f0034b73d40)] **deps:** Bump actions/add-to-project from 1.0.1 to 1.0.2 ([#96](https://github.com/flex-development/vfile-reader/issues/96))
+- [[`ece5af4`](https://github.com/flex-development/vfile-reader/commit/ece5af4c612e9a54ced6b0bab40494c12061a419)] **deps:** Bump actions/create-github-app-token from 1.10.1 to 1.10.3 ([#113](https://github.com/flex-development/vfile-reader/issues/113))
+- [[`8586c2f`](https://github.com/flex-development/vfile-reader/commit/8586c2f9a61ffe177140b28b2d7077804594417b)] **deps:** Bump actions/upload-artifact from 4.3.3 to 4.3.4 ([#119](https://github.com/flex-development/vfile-reader/issues/119))
+
+### :bug: Fixes
+
+- [[`12f276c`](https://github.com/flex-development/vfile-reader/commit/12f276c197b31b7587662459c66db350a57feac5)] [`Reader#slice`] relative slices
+
+### :house_with_garden: Housekeeping
+
+- [[`40d01c4`](https://github.com/flex-development/vfile-reader/commit/40d01c486286429d3144c9761c4f490bf56a68dd)] `dprint config update`
+
 ## [3.1.1](https://github.com/flex-development/vfile-reader/compare/3.1.0...3.1.1) (2024-06-22)
 
 ### :bug: Fixes
@@ -172,6 +221,7 @@
 ### :house_with_garden: Housekeeping
 
 - [[`a512390`](https://github.com/flex-development/vfile-reader/commit/a512390df6e0b65146ca8d3516622fa1e48a6c21)] initial commit
+
 
 
 
