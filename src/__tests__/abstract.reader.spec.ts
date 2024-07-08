@@ -4,11 +4,11 @@
  */
 
 import type { ReaderValue, ReaderValues } from '#src/types'
-import type { MockInstance } from '#tests/interfaces'
 import type { Offset } from '@flex-development/unist-util-types'
 import type { Point } from '@flex-development/vfile-location'
 import { read } from 'to-vfile'
 import type { VFile, Value } from 'vfile'
+import type { MockInstance } from 'vitest'
 import TestSubject from '../abstract.reader'
 
 describe('unit:Reader', () => {

@@ -4,9 +4,9 @@
  */
 
 import type { Character, RangeTuple } from '#src/types'
-import type { MockInstance } from '#tests/interfaces'
 import { read } from 'to-vfile'
 import type { VFile } from 'vfile'
+import type { MockInstance } from 'vitest'
 import Reader from '../abstract.reader'
 import TestSubject from '../character.reader'
 

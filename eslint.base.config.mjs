@@ -461,6 +461,14 @@ export default [
           checkConstructors: true,
           checkGetters: true,
           checkSetters: true,
+          contexts: [
+            'ClassDeclaration',
+            'MethodDefinition',
+            'PropertyDefinition',
+            'TSInterfaceDeclaration',
+            'TSMethodSignature',
+            'VariableDeclaration'
+          ],
           descriptionStyle: 'body'
         }
       ],
@@ -491,14 +499,21 @@ export default [
           checkGetters: true,
           checkSetters: true,
           contexts: [
+            'PropertyDefinition',
             'TSDeclareFunction:not(TSDeclareFunction + TSDeclareFunction)',
+            'TSMethodSignature',
             'FunctionDeclaration:not(TSDeclareFunction + FunctionDeclaration)'
           ],
           enableFixer: true,
-          exemptEmptyConstructors: true,
+          exemptEmptyConstructors: false,
           exemptEmptyFunctions: false,
           require: {
-            FunctionDeclaration: false
+            ArrowFunctionExpression: false,
+            ClassDeclaration: true,
+            ClassExpression: true,
+            FunctionDeclaration: true,
+            FunctionExpression: true,
+            MethodDefinition: true
           }
         }
       ],
@@ -1032,6 +1047,7 @@ export default [
       'jest-formatting/padding-around-describe-blocks': 1,
       'jest-formatting/padding-around-expect-groups': 1,
       'jest-formatting/padding-around-test-blocks': 1,
+      'jsdoc/require-jsdoc': 0,
       'no-control-regex': 0,
       'no-empty-pattern': 0,
       'promise/prefer-await-to-callbacks': 0,

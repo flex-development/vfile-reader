@@ -112,6 +112,13 @@ const config: UserConfigExport = defineConfig((env: ConfigEnv): UserConfig => {
       },
       restoreMocks: true,
       sequence: {
+        /**
+         * Sorting and sharding algorithm provider.
+         *
+         * @see {@linkcode BaseSequencer}
+         *
+         * @extends {BaseSequencer}
+         */
         sequencer: class Sequencer extends BaseSequencer {
           /**
            * Determines test file execution order.
@@ -121,7 +128,7 @@ const config: UserConfigExport = defineConfig((env: ConfigEnv): UserConfig => {
            * @async
            *
            * @param {WorkspaceSpec[]} specs - Workspace spec objects
-           * @return {Promise<WorkspaceSpec[]>} `files` sorted
+           * @return {Promise<WorkspaceSpec[]>} Sorted `specs`
            */
           public override async sort(
             specs: WorkspaceSpec[]
