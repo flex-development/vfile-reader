@@ -290,7 +290,10 @@ abstract class Reader<
     if (typeof h === 'object') h = h.offset
     if (typeof x === 'object' && x) x = x.offset
 
-    return <never>this.values.slice(h, typeof x === 'number' ? x++ : undefined)
+    return <never>this.values.slice(
+      h - this.start.offset,
+      typeof x === 'number' ? x - this.start.offset : undefined
+    )
   }
 
   /**

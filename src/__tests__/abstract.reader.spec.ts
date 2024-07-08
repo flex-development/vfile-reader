@@ -184,20 +184,34 @@ describe('unit:Reader', () => {
     let end: Point
     let slice: ReaderValue[]
     let start: Point
+    let sub: TestSubject
 
     beforeAll(() => {
       end = { column: 4, line: 1, offset: 3 }
       start = { column: 1, line: 1, offset: 0 }
 
       slice = [source[0]!, source[1]!, source[2]!]
+
+      sub = new Subject(file, end)
     })
 
     it('should return reader value slice (position)', () => {
       expect(subject.slice({ end, start })).to.eql(slice)
     })
 
+    it('should return reader value slice (position, relative)', () => {
+      expect(sub.slice({
+        end: { column: end.column + 3, line: end.line, offset: end.offset * 2 },
+        start: end
+      })).to.eql(slice)
+    })
+
     it('should return reader value slice (tuple)', () => {
       expect(subject.slice([start.offset, end.offset])).to.eql(slice)
+    })
+
+    it('should return reader value slice (tuple, relative)', () => {
+      expect(sub.slice([end.offset, end.offset * 2])).to.eql(slice)
     })
   })
 
