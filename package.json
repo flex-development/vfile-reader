@@ -1,7 +1,7 @@
 {
   "name": "@flex-development/vfile-reader",
   "description": "vfile utility to read from a file",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "keywords": [
     "character",
     "code-point",
