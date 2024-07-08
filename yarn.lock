@@ -1839,15 +1839,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/unist-util-types@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@flex-development/unist-util-types@npm:1.4.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Funist-util-types%2F1.4.0%2F7bc3e76774ee0ff16f31bf3ca7caaec923795e07"
-  peerDependencies:
-    "@types/unist": ">=3.0.2"
-  checksum: 10/90f20be4a9617e5483b0ab9e8837022b78c5bd6dc12b65b30c1e7a10798f45fca4367716deeb666a9ec09d9321b8d51393be7f3bf9535ec2794a22dc9c6fd4f8
-  languageName: node
-  linkType: hard
-
 "@flex-development/unist-util-types@npm:1.6.1":
   version: 1.6.1
   resolution: "@flex-development/unist-util-types@npm:1.6.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Funist-util-types%2F1.6.1%2F0deabf0a30d32dc9ae23aea394ef67b8f0b806b9"
@@ -1857,14 +1848,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/vfile-location@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@flex-development/vfile-location@npm:1.0.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fvfile-location%2F1.0.1%2F79df979602163f1ede1c29e00ad0ebec00c8e658"
+"@flex-development/vfile-location@npm:1.0.2":
+  version: 1.0.2
+  resolution: "@flex-development/vfile-location@npm:1.0.2::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fvfile-location%2F1.0.2%2Fb341b4a1817c124f2e2592815d00f6cbe408413c"
   dependencies:
-    "@flex-development/unist-util-types": "npm:1.4.0"
+    "@flex-development/unist-util-types": "npm:1.6.1"
     "@types/unist": "npm:3.0.2"
     vfile: "npm:6.0.1"
-  checksum: 10/2deaf57809d7fb58e4432bc1cb576ef651596e42eb99bbd41de7312ec7b453d678d91d6b3cc5cca6111d0dbb690aa0950a5e2d09a83511a8e33579c2a6d43465
+  checksum: 10/9dd588ee62c045f9d170afdcf6a9e62bb05511fcdbe51bf820d76b4f756086c4f1fe1b754b8b453874aadbbfa85672ee008bb7d7974b3e49c6bf57210cdd1a79
   languageName: node
   linkType: hard
 
@@ -1886,7 +1877,7 @@ __metadata:
     "@flex-development/pathe": "npm:2.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.25"
     "@flex-development/unist-util-types": "npm:1.6.1"
-    "@flex-development/vfile-location": "npm:1.0.1"
+    "@flex-development/vfile-location": "npm:1.0.2"
     "@stylistic/eslint-plugin": "npm:2.3.0"
     "@types/chai": "npm:4.3.16"
     "@types/eslint": "npm:8.56.10"
