@@ -10473,7 +10473,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vfile@npm:6.0.1, vfile@npm:^6.0.0, vfile@npm:^6.0.1":
+"vfile@npm:6.0.1":
   version: 6.0.1
   resolution: "vfile@npm:6.0.1"
   dependencies:
@@ -10484,7 +10484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vfile@npm:6.0.2":
+"vfile@npm:6.0.2, vfile@npm:^6.0.0, vfile@npm:^6.0.1":
   version: 6.0.2
   resolution: "vfile@npm:6.0.2"
   dependencies:
