@@ -1852,14 +1852,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@flex-development/vfile-location@npm:1.0.2":
-  version: 1.0.2
-  resolution: "@flex-development/vfile-location@npm:1.0.2::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fvfile-location%2F1.0.2%2Fb341b4a1817c124f2e2592815d00f6cbe408413c"
+"@flex-development/vfile-location@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@flex-development/vfile-location@npm:1.1.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40flex-development%2Fvfile-location%2F1.1.0%2F3cb3d9ff81e6a56c0e5e50048701f90db0eb80e0"
   dependencies:
     "@flex-development/unist-util-types": "npm:1.6.1"
     "@types/unist": "npm:3.0.2"
-    vfile: "npm:6.0.1"
-  checksum: 10/9dd588ee62c045f9d170afdcf6a9e62bb05511fcdbe51bf820d76b4f756086c4f1fe1b754b8b453874aadbbfa85672ee008bb7d7974b3e49c6bf57210cdd1a79
+    vfile: "npm:6.0.2"
+  checksum: 10/3f217ede58e7f8855b412e7f25f78983a4c5e4256c1c3ab330efc7f8dbe0e30ca6983944950c1ac3b74081afba2d23688efef264c9e11bae796593ec85921c52
   languageName: node
   linkType: hard
 
@@ -1881,7 +1881,7 @@ __metadata:
     "@flex-development/pathe": "npm:2.0.0"
     "@flex-development/tutils": "npm:6.0.0-alpha.25"
     "@flex-development/unist-util-types": "npm:1.6.1"
-    "@flex-development/vfile-location": "npm:1.0.2"
+    "@flex-development/vfile-location": "npm:1.1.0"
     "@stylistic/eslint-plugin": "npm:2.3.0"
     "@types/chai": "npm:4.3.16"
     "@types/eslint": "npm:8.56.10"
@@ -10470,17 +10470,6 @@ __metadata:
     vfile: "npm:^6.0.0"
     vfile-message: "npm:^4.0.0"
   checksum: 10/0dbbc8adeb73bb24b5f723e947122e1ae7b6bd0c5ff3fd1ae0ef4a3066f74be00425102c95aa4eaa0f529ba05237255fe8342af76661b0ba6aee3f4c16ca135f
-  languageName: node
-  linkType: hard
-
-"vfile@npm:6.0.1":
-  version: 6.0.1
-  resolution: "vfile@npm:6.0.1"
-  dependencies:
-    "@types/unist": "npm:^3.0.0"
-    unist-util-stringify-position: "npm:^4.0.0"
-    vfile-message: "npm:^4.0.0"
-  checksum: 10/7f8412f9ce7709d3be4041fd68a159e2cf96f9c9a4f095bcb18d1561009757b8efb37b71d0ae087e5202fe0e3b3162aae0adf92e30e2448a45645912c23c4ab2
   languageName: node
   linkType: hard
 
