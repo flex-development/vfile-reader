@@ -6811,14 +6811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^10.2.0":
-  version: 10.4.1
-  resolution: "lru-cache@npm:10.4.1"
-  checksum: 10/7855dd8cfddf2b1d5b29beb7908589d8617ab373559ae975076eed13d3aa299b4770c1d4430c306a3b5ea8e01e46990911796a35cd77326fc6fd7cf41c17b551
-  languageName: node
-  linkType: hard
-
-"lru-cache@npm:^10.4.3":
+"lru-cache@npm:^10.2.0, lru-cache@npm:^10.4.3":
   version: 10.4.3
   resolution: "lru-cache@npm:10.4.3"
   checksum: 10/e6e90267360476720fa8e83cc168aa2bf0311f3f2eea20a6ba78b90a885ae72071d9db132f40fda4129c803e7dcec3a6b6a6fbb44ca90b081630b810b5d6a41a
